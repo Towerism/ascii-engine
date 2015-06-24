@@ -8,6 +8,7 @@ include(ExternalProject)
 ExternalProject_Add(
     googletest
     URL https://googletest.googlecode.com/files/gtest-1.7.0.zip
+    URL_MD5 2d6ec8ccdf5c46b05ba54a9fd1d130d7
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/googletest
     LOG_DOWNLOAD 0
     # Disable install step
