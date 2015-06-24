@@ -9,6 +9,7 @@ before_install:
   - export CXX=g++-4.9
   - sudo pip install cpp-coveralls
   - sudo apt-get install lcov
+  - sudo apt-get install gcov
 
 script:
   - make coveralls
