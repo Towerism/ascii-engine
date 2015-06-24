@@ -27,7 +27,7 @@ all compile::
 
 #### Testing
 
-all test:: generate
+all test:: generate compile
 	@make test -s -C build
 
 all::
