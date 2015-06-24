@@ -1,5 +1,7 @@
 cmake_policy(SET CMP0037 OLD)
 
+include(configure_gtest)
+
 add_custom_target(test)
 macro(run_test test_target)
   add_custom_target(run_${test_target}
