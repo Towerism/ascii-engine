@@ -9,12 +9,9 @@ before_install:
   - export CXX=g++-4.9
   - sudo pip install cpp-coveralls
   - sudo apt-get install lcov
-      
+
 script:
-  - mkdir -p build && cd build
-  - cmake -DENABLE_COVERAGE=1 .. && make
-  - make coverage
-  - coveralls --exclude test --gcov-options '\-lp'
+  - make coveralls
 
 after_success:
   - make send-coveralls
