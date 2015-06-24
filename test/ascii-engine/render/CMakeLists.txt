@@ -1,5 +1,2 @@
-set(TEST_RENDER_SRCS test_renderable.cc)
-add_executable(test_render ${TEST_RENDER_SRCS})
-target_link_libraries(test_render display gtest gtest_main)
-
-gtest_test_exec(test_render)
+set(RENDER_TESTS_SRCS test_renderable.cc)
+add_test_sources(${RENDER_TESTS_SRCS})
