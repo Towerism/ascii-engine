@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <ascii-engine/display/renderable.hh>
+#include <ascii-engine/render/renderable.hh>
 #include <string>
 
 TEST(Renderable, CreateDefault) {
