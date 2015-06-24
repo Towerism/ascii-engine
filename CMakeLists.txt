@@ -4,8 +4,9 @@ option(ASCII_ENGINE_TESTS "ASCII_ENGINE_TESTS" ON)
 option(ENABLE_COVERAGE "ENABLE_COVERAGE (debug, linux builds only)" OFF)
 
 if (ENABLE_COVERAGE AND NOT WIN32 AND NOT APPLE) 
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ggdb -O0 -fprofile-arcs -ftest-coverage") 
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ggdb -O0 -fprofile-arcs -ftest-coverage") 
+  set(CMAKE_BUILD_TYPE DEBUG)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -ggdb -O0 -fprofile-arcs -ftest-coverage") 
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -ggdb -O0 -fprofile-arcs -ftest-coverage") 
   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage -lgcov")
 endif() 
 
