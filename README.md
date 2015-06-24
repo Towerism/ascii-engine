@@ -2,9 +2,9 @@
 An ascii-based text manipulation engine
 
 ## Requirements
-* GCC 4.9 or higher
-* CMake 3.2.3 or higher
-* GNU Make 4.1 or higher
+* GCC 4.9+
+* CMake 3.2.3+
+* GNU Make 4.1+
 
 ## Clone
 ```
