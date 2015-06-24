@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2.3 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.8.7 FATAL_ERROR)
 
 option(ASCII_ENGINE_TESTS "ASCII_ENGINE_TESTS" ON)
 
