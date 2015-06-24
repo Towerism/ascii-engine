@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Towerism/ascii-engine.svg?branch=build)](https://travis-ci.org/Towerism/ascii-engine)
+
 # ASCII-Engine
 An ascii-based text manipulation engine
 
