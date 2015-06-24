@@ -11,7 +11,10 @@ before_install:
   - sudo apt-get install lcov
       
 script:
-  - make coveralls
+  - cd build
+  - cmake -DENABLE_COVERAGE=1 .. && make
+  - make coverage
+  - coveralls --exclude test --gcov-options '\-lp'
 
 after_success:
   - make send-coveralls
