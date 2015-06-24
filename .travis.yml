@@ -1,6 +1,6 @@
 language: cpp
 
 script:
-  g++ --version
-  cmake --version
+  - g++ --version
+  - cmake --version
   - make
