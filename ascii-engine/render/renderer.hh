@@ -1,9 +1,12 @@
 class Renderer {
 public:
 
-  Renderer();
-  Renderer(int x, int y);
+  Renderer(int width = 0, int height = 0);
 
   int get_width();
   int get_height();
+
+private:
+
+  int width, height;
 };

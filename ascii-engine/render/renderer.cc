@@ -1,17 +1,13 @@
 #include "renderer.hh"
 
-Renderer::Renderer() {
-
-}
-
-Renderer::Renderer(int x, int y) {
+Renderer::Renderer(int width, int height) : width(width), height(height) {
 
 }
 
 int Renderer::get_width() {
-  return 123;
+  return width;
 }
 
 int Renderer::get_height() {
-  return 321;
+  return height;
 }
