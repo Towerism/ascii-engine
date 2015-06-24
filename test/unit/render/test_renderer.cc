@@ -4,8 +4,8 @@
 TEST(Renderer, CreateDefault) {
   Renderer renderer;
 
-  ASSERT_EQ(renderer.get_width(), 0);
-  ASSERT_EQ(renderer.get_height(), 0);
+  EXPECT_EQ(0, renderer.get_width());
+  EXPECT_EQ(0, renderer.get_height());
 }
 
 TEST(Renderer, CreateWithDimensions) {
@@ -14,6 +14,6 @@ TEST(Renderer, CreateWithDimensions) {
 
   Renderer renderer(5, 6);
 
-  ASSERT_EQ(renderer.get_width(), width);
-  ASSERT_EQ(renderer.get_height(), height);
+  EXPECT_EQ(width, renderer.get_width());
+  EXPECT_EQ(height, renderer.get_height());
 }
