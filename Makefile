@@ -14,7 +14,7 @@ all compile::
 #### Testing
 
 all test:: generate compile
-	@make test -s -C build
+	@make run-tests -s -C build
 
 all::
 	@echo "-- Done"
