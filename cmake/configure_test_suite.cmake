@@ -18,7 +18,6 @@ endmacro()
 
 macro(get_test_sources var)
   file(STRINGS ${CMAKE_BINARY_DIR}/test_sources PATHS)
-  message("the paths are " ${PATHS})
   foreach(PATH ${PATHS})
     file(RELATIVE_PATH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${PATH})
     list(APPEND ${var} ${RELATIVE})
