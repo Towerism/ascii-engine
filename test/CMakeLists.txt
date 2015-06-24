@@ -1,5 +1,5 @@
 include_directories(../lib/googletest/include)
-add_subdirectory(ascii-engine)
+add_subdirectory(unit)
 
 get_test_sources(TEST_SRCS)
 
