@@ -1,6 +1,11 @@
 # ASCII-Engine
 An ascii-based text manipulation engine
 
+## Requirements
+* GCC 4.9 or higher
+* CMake 3.2.3 or higher
+* GNU Make 4.1 or higher
+
 ## Clone
 ```
 $ git clone git@github.com:towerism/ascii-engine
