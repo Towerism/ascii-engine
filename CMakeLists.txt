@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 2.8.7 FATAL_ERROR)
 
 option(ASCII_ENGINE_TESTS "ASCII_ENGINE_TESTS" ON)
-option(ENABLE_GCOV "ENABLE_GCOV (debug, linux builds only)" OFF)
+option(ENABLE_COVERAGE "ENABLE_COVERAGE (debug, linux builds only)" OFF)
 
-if (ENABLE_GCOV AND NOT WIN32 AND NOT APPLE) 
-  set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage") 
-  set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage") 
-  set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage -lgcov")
+if (ENABLE_COVERAGE AND NOT WIN32 AND NOT APPLE) 
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS_DEBUG} -ggdb -O0 -fprofile-arcs -ftest-coverage") 
+  set(CMAKE_C_DEBUG "${CMAKE_C_FLAGS_DEBUG} -ggdb -O0 -fprofile-arcs -ftest-coverage") 
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage -lgcov")
 endif() 
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
