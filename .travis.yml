@@ -1,5 +1,6 @@
 language: cpp
 
 script:
-  - g++ --version
+  - which g++
+  - which cmake
   - make
