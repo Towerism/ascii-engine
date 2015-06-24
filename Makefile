@@ -13,7 +13,8 @@ all compile::
 
 #### Testing
 
-all test:: generate compile
+all test pre-test:: generate compile
+all test run-tests::
 	@make run-tests -s -C build
 
 all::
@@ -23,7 +24,7 @@ all::
 
 coveralls configure-coveralls::
 	@mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=DEBUG -DENABLE_GCOV=1
-coveralls build-coveralls:: compile
+coveralls build-coveralls:: compile run-tests
 
 send-coveralls::
 	@coveralls --exclude test --gcov-options '\-lp'
