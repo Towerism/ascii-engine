@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <ascii_engine/render/renderer.hh>
+#include <ascii-engine/render/renderer.hh>
 
 TEST(Renderer, CreateDefault) {
   Renderer renderer;
