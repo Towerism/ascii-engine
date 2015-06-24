@@ -1,22 +1,8 @@
-.PHONY:: all submodules submodules-init submoules-sync \
-				generate test compile clean-build
+.PHONY:: all generate compile test clean-build
 .DEFAULT:: all
 
 all::
 	@echo "-- Starting Build"
-
-#### Submodules
-
-all submodules::
-	@echo "-- Checking submodules..."
-all submodules:: .touch-submodules
-.touch-submodules:
-	@printf -- "-- Updating submodules"
-	@git submodule --quiet init
-	@git submodule --quiet sync
-	@git submodule --quiet update
-	@touch .touch-submodules
-	@printf " done\n"
 
 #### CMake and Compiling
 

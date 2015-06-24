@@ -8,7 +8,6 @@ include_directories(include/ascii-engine)
 include_directories(.)
 
 add_subdirectory(ascii-engine)
-#add_subdirectory(lib)
 
 if (${ASCII_ENGINE_TESTS}) 
   include(configure_test_suite)

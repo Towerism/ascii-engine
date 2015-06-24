@@ -28,5 +28,4 @@
 *.app
 
 # Project specific
-/.touch-submodules
 /build/
