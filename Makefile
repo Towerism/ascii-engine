@@ -19,6 +19,15 @@ all test:: generate compile
 all::
 	@echo "-- Done"
 
+#### Coveralls
+
+coveralls configure-coveralls::
+	@mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=DEBUG -DENABLE_GCOV=1
+coveralls build-coveralls:: compile
+
+send-coveralls::
+	@coveralls --exclude test --gcov-options '\-lp'
+
 #### Cleaning
 
 clean::

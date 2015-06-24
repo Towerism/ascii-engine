@@ -7,6 +7,10 @@ before_install:
   - sudo apt-get install gcc-4.9
   - export CC=gcc-4.9
   - export CXX=g++-4.9
+  - sudo pip install cpp-coveralls
       
 script:
-  - make
+  - make coveralls
+
+after_success:
+  - make send-coveralls
