@@ -5,7 +5,7 @@ An ascii-based text manipulation engine
 
 ## Requirements
 * GCC 4.9+
-* CMake 3.2.3+
+* CMake 2.8.7+
 * GNU Make 4.1+
 
 ## Clone
