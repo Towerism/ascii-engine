@@ -5,6 +5,7 @@ option(ASCII_ENGINE_TESTS "ASCII_ENGINE_TESTS" ON)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 include_directories(include/ascii-engine)
+include_directories(.)
 
 add_subdirectory(ascii-engine)
 add_subdirectory(lib)
