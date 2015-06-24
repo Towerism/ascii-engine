@@ -3,6 +3,8 @@ cmake_policy(SET CMP0037 OLD)
 include(configure_gtest)
 
 add_custom_target(test)
+file(WRITE ${CMAKE_BINARY_DIR}/test_sources "")
+
 macro(run_test test_target)
   add_custom_target(run_${test_target}
     COMMAND ${test_target}
@@ -10,7 +12,6 @@ macro(run_test test_target)
   add_dependencies(test run_${test_target})
 endmacro()
 
-file(WRITE ${CMAKE_BINARY_DIR}/test_sources "")
 macro(add_test_sources)
   foreach(src ${ARGN})
     set(src ${src})
