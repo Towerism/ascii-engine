@@ -1,10 +1,6 @@
 #include <string>
 #include "renderable.hh"
 
-Renderable::Renderable() : x(0), y(0) {
-
-}
-
 Renderable::Renderable(int x, int y, std::string str) : x(x), y(y), str(str) {
 
 }

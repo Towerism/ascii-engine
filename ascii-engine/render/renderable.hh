@@ -3,8 +3,7 @@
 class Renderable {
 public:
 
-  Renderable();
-  Renderable(int x, int y, std::string str);
+  Renderable(int x = 0, int y = 0, std::string str = "");
 
   int get_x() const;
   int get_y() const;
