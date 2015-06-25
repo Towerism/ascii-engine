@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Towerism/ascii-engine.svg?branch=build)](https://travis-ci.org/Towerism/ascii-engine)
+[![Build Status](https://travis-ci.org/Towerism/ascii-engine.svg?branch=build)](https://travis-ci.org/Towerism/ascii-engine) [![Coverage Status](https://coveralls.io/repos/Towerism/ascii-engine/badge.svg?branch=build)](https://coveralls.io/r/Towerism/ascii-engine?branch=build)
 
 # ASCII-Engine
 An ascii-based text manipulation engine
