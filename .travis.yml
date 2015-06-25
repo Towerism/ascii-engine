@@ -1,12 +1,12 @@
 language: cpp
 
 before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update -q
-  - sudo apt-get install g++-4.9
-  - sudo apt-get install gcc-4.9
-  - export CC=gcc-4.9
-  - export CXX=g++-4.9
-      
+  - sudo ci/install_gcc5.sh
+  - sudo ci/install_lcov111.sh
+  - gem install coveralls-lcov
+
 script:
-  - make
+  - make coveralls
+
+after_success:
+  - coveralls-lcov build/coverage/coverage.info.cleaned
