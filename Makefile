@@ -13,11 +13,19 @@ all compile::
 
 #### Testing
 
-all test:: generate compile
+all test pre-test:: generate compile
+all test run-tests::
 	@make run-tests -s -C build
 
 all::
 	@echo "-- Done"
+
+#### Coveralls
+
+coveralls configure-coveralls::
+	@mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=DEBUG -DENABLE_COVERAGE=1 ..
+coveralls build-coveralls:: compile
+	@make coverage -s -C build
 
 #### Cleaning
 
