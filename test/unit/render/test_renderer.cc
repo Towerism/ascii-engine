@@ -33,12 +33,11 @@ TEST(Renderer, AddRenderable) {
 }
 
 TEST(Renderer, RenderSingleCharacterAtOrigin) {
-  std::string str = "@";
-  Renderable* renderable = new Renderable(0, 0, str);
+  Renderable* renderable = new Renderable(0, 0, "@");
   Renderer renderer(2, 2);
 
   renderer.add(renderable);
   renderer.render();
 
-  EXPECT_EQ(str, renderer.get_string_at_row(0));
+  EXPECT_EQ("@ ", renderer.get_string_at_row(0));
 }
