@@ -1,8 +1,8 @@
 language: cpp
 
 before_install:
-  - ci/install_gcc5.sh
-  - ci/install_lcov111.sh
+  - sudo ci/install_gcc5.sh
+  - sudo ci/install_lcov111.sh
   - gem install coveralls-lcov
 
 script:
