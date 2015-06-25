@@ -16,4 +16,4 @@ script:
   - make coveralls
 
 after_success:
-  - make send-coveralls
+  - cd build && coveralls --exclude test --exclude build
