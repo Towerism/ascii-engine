@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <string>
 #include <ascii-engine/render/renderer.hh>
 #include <ascii-engine/render/renderable.hh>
 
@@ -26,4 +27,15 @@ TEST(Renderer, AddRenderable) {
   renderer.add(renderable);
 
   EXPECT_EQ(renderable, renderer.get_renderable(0));
+}
+
+TEST(Renderer, RenderSingleCharacter) {
+  std::string str = "@";
+  Renderable* renderable = new Renderable(0, 0, "@");
+  Renderer renderer(2, 2);
+
+  renderer.add(renderable);
+  renderer.render();
+
+  EXPECT_EQ(str, renderer.get_string_at_row(0));
 }
