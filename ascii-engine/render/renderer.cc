@@ -3,9 +3,17 @@
 #include "renderer.hh"
 
 Renderer::Renderer(int width, int height) : width(width), height(height) {
-  std::string empty_row(width, ' ');
-  for (int i = 0; i < height; ++i) {
-    char_matrix.push_back(empty_row);
+  init_char_matrix(' ');
+}
+
+void Renderer::init_char_matrix(char value) {
+  std::string empty_row(width, value);
+  init_n_char_matrix_rows(height, empty_row);
+}
+
+void Renderer::init_n_char_matrix_rows(int n, std::string value) {
+  for (int i = 0; i < n; ++i) {
+    char_matrix.push_back(value);
   }
 }
 
@@ -16,15 +24,24 @@ void Renderer::add(Renderable* renderable) {
 void Renderer::render() {
   int x = renderables[0]->get_x();
   int y = renderables[0]->get_y();
-  std::string str = renderables[0]->get_str();
+  stream.str(renderables[0]->get_str());
+  render_stream_to_char_matrix(x, y);
+}
 
-  std::istringstream str_stream(str);
-  for (int i = y; str_stream.good(); ++i) {
-    std::string line;
-    getline(str_stream, line);
-    char_matrix[i].replace(x, line.length(), line);
-    char_matrix[i].erase(width, std::string::npos);
+void Renderer::render_stream_to_char_matrix(int x, int y) {
+  for (int i = y; stream.good(); ++i) {
+    next_line_from_stream();
+    render_line_to_char_matrix(x, i);
   }
+}
+
+void Renderer::next_line_from_stream() {
+  getline(stream, line);
+}
+
+void Renderer::render_line_to_char_matrix(int x, int y) {
+  char_matrix[y].replace(x, line.length(), line);
+  char_matrix[y].erase(width, std::string::npos);
 }
 
 int Renderer::get_width() const {
