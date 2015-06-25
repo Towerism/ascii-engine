@@ -20,9 +20,10 @@ TEST(Renderer, CreateWithDimensions) {
 }
 
 TEST(Renderer, AddRenderable) {
+  Renderable* renderable = new Renderable;
   Renderer renderer;
 
-  renderer.add(new Renderable);
+  renderer.add(renderable);
 
-  EXPECT_EQ(renderable, *renderer.get_renderable(0));
+  EXPECT_EQ(renderable, renderer.get_renderable(0));
 }
