@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <ascii-engine/render/renderer.hh>
+#include <ascii-engine/render/renderable.hh>
 
 TEST(Renderer, CreateDefault) {
   Renderer renderer;
@@ -16,4 +17,12 @@ TEST(Renderer, CreateWithDimensions) {
 
   EXPECT_EQ(width, renderer.get_width());
   EXPECT_EQ(height, renderer.get_height());
+}
+
+TEST(Renderer, AddRenderable) {
+  Renderer renderer;
+
+  renderer.add(new Renderable);
+
+  EXPECT_EQ(renderable, *renderer.get_renderable(0));
 }
