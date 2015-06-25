@@ -10,11 +10,12 @@ public:
   Renderer(int width = 0, int height = 0);
 
   void add(Renderable* renderable);
+  void render();
 
   int get_width() const;
   int get_height() const;
-
   const Renderable* get_renderable(int index) const;
+  std::string get_string_at_row(int index) const;
 
 private:
 
