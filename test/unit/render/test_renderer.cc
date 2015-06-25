@@ -63,3 +63,15 @@ TEST(Renderer, RenderMultipleCharacters) {
   EXPECT_EQ("  ", renderer.get_string_at_row(0));
   EXPECT_EQ("@#", renderer.get_string_at_row(1));
 }
+
+TEST(Renderer, RenderMultipleLines) {
+  Renderable* renderable = new Renderable(1, 0, "a\nb\nc");
+  Renderer renderer(2, 3);
+
+  renderer.add(renderable);
+  renderer.render();
+
+  EXPECT_EQ(" a", renderer.get_string_at_row(0));
+  EXPECT_EQ(" b", renderer.get_string_at_row(1));
+  EXPECT_EQ(" c", renderer.get_string_at_row(2));
+}
