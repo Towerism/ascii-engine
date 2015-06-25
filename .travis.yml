@@ -16,4 +16,4 @@ script:
   - make coveralls
 
 after_success:
-  - cd build && coveralls --exclude googletest
+  - cd build && coveralls --exclude test
