@@ -32,7 +32,7 @@ const Renderable* Renderer::get_renderable(int index) const {
 }
 
 std::string Renderer::get_string_at_row(int index) const {
-  return char_matrix[0];
+  return char_matrix[index];
 }
 
 bool Renderer::char_matrix_is_empty() const {
