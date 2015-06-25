@@ -75,3 +75,15 @@ TEST(Renderer, RenderMultipleLines) {
   EXPECT_EQ(" b", renderer.get_string_at_row(1));
   EXPECT_EQ(" c", renderer.get_string_at_row(2));
 }
+
+TEST(Renderer, RenderMultipleStrings) {
+  Renderable* renderable1 = new Renderable(0, 0, "aa");
+  Renderable* renderable2 = new Renderable(0, 1, "b");
+  Renderer renderer(2, 1);
+
+  renderer.add(renderable1);
+  renderer.add(renderable2);
+  renderer.render();
+
+  EXPECT_EQ("ab", renderer.get_string_at_row(0));
+}
