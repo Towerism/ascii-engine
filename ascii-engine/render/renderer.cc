@@ -1,4 +1,5 @@
 #include <string>
+#include <sstream>
 #include "renderer.hh"
 
 Renderer::Renderer(int width, int height) : width(width), height(height) {
@@ -16,7 +17,14 @@ void Renderer::render() {
   int x = renderables[0]->get_x();
   int y = renderables[0]->get_y();
   std::string str = renderables[0]->get_str();
-  char_matrix[y].replace(x, str.length(), str);
+
+  std::istringstream str_stream(str);
+  for (int i = y; str_stream.good(); ++i) {
+    std::string line;
+    getline(str_stream, line);
+    char_matrix[i].replace(x, line.length(), line);
+    char_matrix[i].erase(width, std::string::npos);
+  }
 }
 
 int Renderer::get_width() const {
