@@ -16,4 +16,4 @@ script:
   - make coveralls
 
 after_success:
-  - coveralls --exclude test --exclude googletest
+  - coveralls --exclude test/* --exclude /usr/* --exclude googletest/*
