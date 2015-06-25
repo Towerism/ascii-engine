@@ -16,6 +16,7 @@ public:
   int get_height() const;
   const Renderable* get_renderable(int index) const;
   std::string get_string_at_row(int index) const;
+  bool char_matrix_is_empty() const;
 
 private:
 
