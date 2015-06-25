@@ -1,7 +1,7 @@
 language: cpp
 
 before_install:
-  - export CXX=g++-5 && CC=gcc-5
+  - sudo ci/install_gcc5.sh
   - sudo ci/install_lcov111.sh
   - gem install coveralls-lcov
 
