@@ -8,6 +8,7 @@ TEST(Renderer, CreateDefault) {
 
   EXPECT_EQ(0, renderer.get_width());
   EXPECT_EQ(0, renderer.get_height());
+  EXPECT_TRUE(renderer.char_matrix_is_empty());
 }
 
 TEST(Renderer, CreateWithDimensions) {
@@ -29,7 +30,7 @@ TEST(Renderer, AddRenderable) {
   EXPECT_EQ(renderable, renderer.get_renderable(0));
 }
 
-TEST(Renderer, RenderSingleCharacter) {
+TEST(Renderer, RenderSingleCharacterAtOrigin) {
   std::string str = "@";
   Renderable* renderable = new Renderable(0, 0, str);
   Renderer renderer(2, 2);
