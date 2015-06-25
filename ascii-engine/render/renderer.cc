@@ -13,7 +13,10 @@ void Renderer::add(Renderable* renderable) {
 }
 
 void Renderer::render() {
-  char_matrix[0] = renderables[0]->get_str();
+  int x = renderables[0]->get_x();
+  int y = renderables[0]->get_y();
+  std::string str = renderables[0]->get_str();
+  char_matrix[y].replace(x, str.length(), str);
 }
 
 int Renderer::get_width() const {
