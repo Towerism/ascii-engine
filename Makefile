@@ -28,8 +28,7 @@ coveralls build-coveralls:: compile
 	@make coverage -s -C build
 
 send-coveralls::
-	@cd build && coveralls --exclude test --gcov-options '\-lp'
-
+	@coveralls
 #### Cleaning
 
 clean::
