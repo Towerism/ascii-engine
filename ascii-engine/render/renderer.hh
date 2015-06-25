@@ -21,4 +21,5 @@ private:
 
   int width, height;
   std::vector<std::shared_ptr<Renderable>> renderables;
+  std::vector<std::string> char_matrix;
 };

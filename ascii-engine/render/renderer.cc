@@ -10,7 +10,7 @@ void Renderer::add(Renderable* renderable) {
 }
 
 void Renderer::render() {
-
+  char_matrix.push_back(renderables[0]->get_str());
 }
 
 int Renderer::get_width() const {
@@ -26,5 +26,5 @@ const Renderable* Renderer::get_renderable(int index) const {
 }
 
 std::string Renderer::get_string_at_row(int index) const {
-  return "dummy string";
+  return char_matrix[0];
 }
