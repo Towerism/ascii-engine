@@ -33,4 +33,5 @@ private:
   void next_line_from_stream();
   void render_line_to_char_matrix(int x, int y);
   void render_stream_to_char_matrix(int x, int y);
+  void make_stream_good();
 };

@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <sstream>
 #include "renderer.hh"
@@ -22,10 +23,13 @@ void Renderer::add(Renderable* renderable) {
 }
 
 void Renderer::render() {
-  int x = renderables[0]->get_x();
-  int y = renderables[0]->get_y();
-  stream.str(renderables[0]->get_str());
-  render_stream_to_char_matrix(x, y);
+  for (auto renderable : renderables) {
+    int x = renderable->get_x();
+    int y = renderable->get_y();
+    stream.str(renderable->get_str());
+    render_stream_to_char_matrix(x, y);
+    make_stream_good();
+  }
 }
 
 void Renderer::render_stream_to_char_matrix(int x, int y) {
@@ -35,13 +39,20 @@ void Renderer::render_stream_to_char_matrix(int x, int y) {
   }
 }
 
+void Renderer::make_stream_good() {
+  stream.clear();
+}
+
 void Renderer::next_line_from_stream() {
+  line.clear();
   getline(stream, line);
 }
 
 void Renderer::render_line_to_char_matrix(int x, int y) {
   char_matrix[y].replace(x, line.length(), line);
-  char_matrix[y].erase(width, std::string::npos);
+  if (char_matrix[y].length() >= width) {
+    char_matrix[y].erase(width, std::string::npos);
+  }
 }
 
 int Renderer::get_width() const {
