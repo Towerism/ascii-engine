@@ -8,7 +8,7 @@ before_install:
   - export CC=gcc-5
   - export CXX=g++-5
   - sudo pip install cpp-coveralls
-  - sudo apt-get install lcov
+  - sudo apt-get install lcov-1.11
   - sudo unlink /usr/bin/gcov && sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov
 
 script:
