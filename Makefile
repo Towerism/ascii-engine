@@ -25,7 +25,7 @@ all::
 coveralls configure-coveralls::
 	@mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=DEBUG -DENABLE_COVERAGE=1 ..
 coveralls build-coveralls:: compile
-	@make coverage -s -C build
+	@coveralls-lcov coverage.info.cleaned
 
 send-coveralls::
 	@coveralls
