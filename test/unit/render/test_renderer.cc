@@ -31,7 +31,7 @@ TEST(Renderer, AddRenderable) {
 
 TEST(Renderer, RenderSingleCharacter) {
   std::string str = "@";
-  Renderable* renderable = new Renderable(0, 0, "@");
+  Renderable* renderable = new Renderable(0, 0, str);
   Renderer renderer(2, 2);
 
   renderer.add(renderable);
