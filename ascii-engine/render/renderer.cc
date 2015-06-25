@@ -30,5 +30,5 @@ std::string Renderer::get_string_at_row(int index) const {
 }
 
 bool Renderer::char_matrix_is_empty() const {
-  return false;
+  return char_matrix.empty();
 }
