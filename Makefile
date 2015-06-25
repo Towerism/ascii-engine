@@ -24,11 +24,10 @@ all::
 
 coveralls configure-coveralls::
 	@mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=DEBUG -DENABLE_COVERAGE=1 ..
-coveralls build-coveralls:: compile
-	@coveralls-lcov coverage.info.cleaned
+coveralls build-coveralls:: compile run-tests
 
 send-coveralls::
-	@coveralls
+	@coveralls --exclude test --exclude googletest
 #### Cleaning
 
 clean::
