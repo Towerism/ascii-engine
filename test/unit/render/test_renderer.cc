@@ -12,13 +12,15 @@ TEST(Renderer, CreateDefault) {
 }
 
 TEST(Renderer, CreateWithDimensions) {
-  int width = 5;
-  int height = 6;
+  int width = 3;
+  int height = 2;
 
-  Renderer renderer(5, 6);
+  Renderer renderer(3, 2);
 
   EXPECT_EQ(width, renderer.get_width());
   EXPECT_EQ(height, renderer.get_height());
+  EXPECT_EQ("   ", renderer.get_string_at_row(0));
+  EXPECT_EQ("   ", renderer.get_string_at_row(1));
 }
 
 TEST(Renderer, AddRenderable) {
