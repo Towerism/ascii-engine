@@ -10,10 +10,10 @@ before_install:
   - wget http://launchpadlibrarian.net/178468692/lcov_1.11-2_all.deb
   - sudo dpkg -i lcov_1.11-2_all.deb
   - sudo unlink /usr/bin/gcov && sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov
-  - sudo pip install cpp-coveralls
+  - gem install coveralls-lcov
 
 script:
   - make coveralls
 
 after_success:
-  - coveralls --exclude test/* --exclude /usr/* --exclude googletest/*
+  - coveralls-lcov build/coverage/coverage.info.cleaned

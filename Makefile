@@ -24,7 +24,8 @@ all::
 
 coveralls configure-coveralls::
 	@mkdir -p build && cd build && cmake -DCMAKE_BUILD_TYPE=DEBUG -DENABLE_COVERAGE=1 ..
-coveralls build-coveralls:: compile run-tests
+coveralls build-coveralls:: compile
+	@make coverage -s -C build
 
 #### Cleaning
 
