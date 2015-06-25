@@ -2,7 +2,10 @@
 #include "renderer.hh"
 
 Renderer::Renderer(int width, int height) : width(width), height(height) {
-
+  std::string empty_row(width, ' ');
+  for (int i = 0; i < height; ++i) {
+    char_matrix.push_back(empty_row);
+  }
 }
 
 void Renderer::add(Renderable* renderable) {
