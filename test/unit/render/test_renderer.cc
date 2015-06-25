@@ -52,3 +52,14 @@ TEST(Renderer, RenderSingleCharacterAtNonOrigin) {
   EXPECT_EQ("  ", renderer.get_string_at_row(0));
   EXPECT_EQ("@ ", renderer.get_string_at_row(1));
 }
+
+TEST(Renderer, RenderMultipleCharacters) {
+  Renderable* renderable = new Renderable(0, 1, "@#");
+  Renderer renderer(2, 2);
+
+  renderer.add(renderable);
+  renderer.render();
+
+  EXPECT_EQ("  ", renderer.get_string_at_row(0));
+  EXPECT_EQ("@#", renderer.get_string_at_row(1));
+}
