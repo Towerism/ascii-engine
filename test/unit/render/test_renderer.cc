@@ -78,7 +78,7 @@ TEST(Renderer, RenderMultipleLines) {
 
 TEST(Renderer, RenderMultipleStrings) {
   Renderable* renderable1 = new Renderable(0, 0, "aa");
-  Renderable* renderable2 = new Renderable(0, 1, "b");
+  Renderable* renderable2 = new Renderable(1, 0, "b");
   Renderer renderer(2, 1);
 
   renderer.add(renderable1);
