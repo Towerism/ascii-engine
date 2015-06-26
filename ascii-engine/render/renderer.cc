@@ -13,12 +13,15 @@ void Renderer::add(Renderable* renderable) {
 
 void Renderer::render() {
   for (auto renderable : renderables) {
-    int x = renderable->get_x();
-    int y = renderable->get_y();
-    std::string str = renderable->get_str();
-
-    char_matrix.render_at(x, y, str);
+    render_renderable(renderable);
   }
+}
+
+void Renderer::render_renderable(std::shared_ptr<Renderable> renderable) {
+  int x = renderable->get_x();
+  int y = renderable->get_y();
+  std::string str = renderable->get_str();
+  char_matrix.render_at(x, y, str);
 }
 
 int Renderer::get_width() const {

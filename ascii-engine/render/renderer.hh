@@ -26,4 +26,5 @@ private:
   std::vector<std::shared_ptr<Renderable>> renderables;
   Char_matrix char_matrix;
 
+  void render_renderable(std::shared_ptr<Renderable> renderable);
 };
