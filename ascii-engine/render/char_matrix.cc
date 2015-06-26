@@ -24,7 +24,7 @@ void Char_matrix::prepare_stream(std::string str) {
 void Char_matrix::render_stream_at(int x, int y) {
   for (int i = y; stream.good(); ++i) {
     std::string line = next_line();
-    render_line(x, i, line);
+    render_line_at(x, i, line);
   }
 }
 
@@ -38,7 +38,7 @@ std::string Char_matrix::next_line() {
   return line;
 }
 
-void Char_matrix::render_line(int x, int y, std::string line) {
+void Char_matrix::render_line_at(int x, int y, std::string line) {
   strings[y].replace(x, line.length(), line);
   trim_row(y);
 }
