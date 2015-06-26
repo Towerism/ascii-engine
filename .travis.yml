@@ -6,7 +6,7 @@ before_install:
   - gem install coveralls-lcov
 
 script:
-  - make coveralls
+  - make coverage
 
 after_success:
   - coveralls-lcov build/coverage/coverage.info.cleaned
