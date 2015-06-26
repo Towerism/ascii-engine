@@ -40,8 +40,12 @@ std::string Char_matrix::next_line() {
 
 void Char_matrix::render_line(int x, int y, std::string line) {
   strings[y].replace(x, line.length(), line);
-  if (strings[y].length() >= width) {
-    strings[y].erase(width, std::string::npos);
+  trim_row(y);
+}
+
+void Char_matrix::trim_row(int index) {
+  if (strings[index].length() >= width) {
+    strings[index].erase(width, std::string::npos);
   }
 }
 

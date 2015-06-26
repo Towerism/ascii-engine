@@ -27,5 +27,6 @@ private:
   void make_stream_good();
   std::string next_line();
   void render_line(int x, int y, std::string line);
+  void trim_row(int index);
 
 };
