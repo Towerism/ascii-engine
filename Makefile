@@ -10,7 +10,7 @@ all::
 
 all build-dir::
 	@mkdir -p build
-all generate::
+all generate:: build-dir
 	@cd build && cmake $(CMAKE_FLAGS) ..
 all compile::
 	@make -s -C build
@@ -22,7 +22,7 @@ all::
 
 test cmake-test-flags::
 	$(eval CMAKE_FLAGS := -DENABLE_TESTING=1)
-test run-tests:: build-dir generate compile
+test run-tests:: generate compile
 	@make run-tests -s -C build
 
 #### Coveralls
