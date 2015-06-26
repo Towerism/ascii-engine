@@ -5,9 +5,9 @@
 TEST(Renderable, CreateDefault) {
   Renderable test_renderable;
 
-  ASSERT_EQ(test_renderable.get_x(), 0);
-  ASSERT_EQ(test_renderable.get_y(), 0);
-  ASSERT_EQ(test_renderable.get_str(), "");
+  EXPECT_EQ(0, test_renderable.get_x());
+  EXPECT_EQ(0, test_renderable.get_y());
+  EXPECT_EQ("", test_renderable.get_str());
 }
 
 TEST(Renderable, CreateWithPositionAndStr) {
@@ -17,7 +17,7 @@ TEST(Renderable, CreateWithPositionAndStr) {
 
   Renderable test_renderable(x, y, str);
 
-  ASSERT_EQ(test_renderable.get_x(), x);
-  ASSERT_EQ(test_renderable.get_y(), y);
-  ASSERT_EQ(test_renderable.get_str(), str);
+  EXPECT_EQ(x, test_renderable.get_x());
+  EXPECT_EQ(y, test_renderable.get_y());
+  EXPECT_EQ(str, test_renderable.get_str());
 }
