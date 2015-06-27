@@ -16,9 +16,6 @@ install:
   - ln -s $(which gcov-5) installed/usr/bin/gcov
   - gem install coveralls-lcov
 
-# script: make coverage
-script:
-  - gcov --version
-  - lcov --version
+script: make coverage
 
-# after_success: coveralls-lcov build/coverage/coverage.info.cleaned
+after_success: coveralls-lcov build/coverage/coverage.info.cleaned
