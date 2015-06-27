@@ -78,8 +78,6 @@ IF(NOT GCOV_PATH)
 ENDIF() # NOT GCOV_PATH
 
 IF(NOT CMAKE_COMPILER_IS_GNUCXX)
-  # Clang version 3.0.0 and greater now supports gcov as well.
-  MESSAGE(WARNING "Compiler is not GNU gcc! Clang Version 3.0.0 and greater supports gcov as well, but older versions don't.")
 
   IF(NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
     MESSAGE(FATAL_ERROR "Compiler is not GNU gcc! Aborting...")
@@ -107,11 +105,6 @@ MARK_AS_ADVANCED(
   CMAKE_C_FLAGS_COVERAGE
   CMAKE_EXE_LINKER_FLAGS_COVERAGE
   CMAKE_SHARED_LINKER_FLAGS_COVERAGE )
-
-IF ( NOT (CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "Coverage"))
-  MESSAGE( WARNING "Code coverage results with an optimized (non-Debug) build may be misleading" )
-ENDIF() # NOT CMAKE_BUILD_TYPE STREQUAL "Debug"
-
 
 # Param _targetname     The name of new the custom make target
 # Param _testrunner     The name of the target which runs the tests.
