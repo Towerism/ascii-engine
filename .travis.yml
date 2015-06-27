@@ -13,8 +13,8 @@ addons:
 
 install:
   - fakechroot fakeroot debootstrap precise installed
-  - fakechroot fakeroot chroot installed ci/install_gcc5.sh
-  - fakechroot fakeroot chroot installed ci/install_lcov111.sh
+  - fakechroot fakeroot chroot installed ../ci/install_lcov111.sh
+  - exit && export CXX=g++-5 && export CXX=gcc
   - export PATH=installed/usr/bin:$PATH
   - gem install coveralls-lcov
 
