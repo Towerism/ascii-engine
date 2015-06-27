@@ -13,7 +13,7 @@ install:
   - mkdir -p installed && cd lcov && make install PREFIX=../installed && cd ..
   - export PATH=$PWD/installed/usr/bin:$PATH
   - export CXX=g++-5 && export CXX=gcc
-  - ln -s $(which gcov-5) /installed/usr/bin/gcov
+  - ln -s $(which gcov-5) installed/usr/bin/gcov
   - gem install coveralls-lcov
 
 # script: make coverage
