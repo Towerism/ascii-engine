@@ -10,9 +10,11 @@ addons:
 
 install:
   - ci/install_lcov.sh
+  - gem install coveralls-lcov
+
+after_install:
   - ci/fix_symlinks.sh
   - export PATH=$PWD/usr/bin/:$PATH
-  - gem install coveralls-lcov
 
 script: make coverage
 
