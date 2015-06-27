@@ -10,7 +10,7 @@ addons:
 
 install:
   - PREFIX=installed ci/install_to_custom_path.sh
-  - export PATH=$PWD/installed/usr/bin:$PATH
+  - export PATH=$PWD/usr/bin:$PATH
 
 script: make coverage
 
