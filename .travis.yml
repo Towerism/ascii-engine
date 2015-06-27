@@ -9,7 +9,7 @@ addons:
       - gcc-5
 
 install:
-  - git clone git clone https://github.com/linux-test-project/lcov.git
+  - git clone https://github.com/linux-test-project/lcov.git
   - cd lcov && make install PREFIX=../lcov-installed
   - export PATH=lcov-installed/usr/bin:$PATH
   - export CXX=g++-5 && export CXX=gcc
