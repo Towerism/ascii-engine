@@ -9,9 +9,11 @@ addons:
       - gcc-5
 
 install:
-  - ci/install_to_custom_path.sh
-  - export PATH=$PWD/usr/bin:$PATH
+  - ci/install_lcov.sh
+  - ci/fix_symlinks.sh
+  - export PATH=$PWD/usr/bin/:$PATH
+  - gem install coveralls-lcov
 
 script: make coverage
 
-after_success: coveralls-lcov build/coverage/coverage.info.cleaned
+after_success: ci/upload_coverage.sh
