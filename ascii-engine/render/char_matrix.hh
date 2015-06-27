@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <sstream>
 #include <vector>
 
 class Char_matrix {
@@ -19,12 +18,8 @@ private:
   int width, height;
 
   std::vector<std::string> lines;
-  std::istringstream stream;
 
   void init_n_rows_with_value(int n, std::string value);
-  void prepare_stream(std::string str);
-  void render_stream_at(int x, int y);
-  void make_stream_good();
   std::string next_line();
   void render_line_at(int x, int y, std::string line);
   void trim_row(int index);

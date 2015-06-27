@@ -1,5 +1,5 @@
-set(RENDER_SRCS
-                char_matrix.cc
+set(RENDER_SRCS char_matrix.cc
+                line_separator.cc
                 renderable.cc
                 renderer.cc
                 )

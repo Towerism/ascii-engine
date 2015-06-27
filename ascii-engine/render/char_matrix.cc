@@ -1,4 +1,5 @@
 #include "char_matrix.hh"
+#include "line_separator.hh"
 
 Char_matrix::Char_matrix(int width, int height) : width(width), height(height) {
   std::string empty_row(width, ' ');
@@ -12,30 +13,11 @@ void Char_matrix::init_n_rows_with_value(int n, std::string value) {
 }
 
 void Char_matrix::render_at(int x, int y, std::string str) {
-  prepare_stream(str);
-  render_stream_at(x, y);
-  make_stream_good();
-}
-
-void Char_matrix::prepare_stream(std::string str) {
-  stream.str(str);
-}
-
-void Char_matrix::render_stream_at(int x, int y) {
-  for (int i = y; stream.good(); ++i) {
-    std::string line = next_line();
+  Line_separator separator(str);
+  for (int i = y; separator.there_are_more_lines(); ++i) {
+    std::string line = separator.next_line();
     render_line_at(x, i, line);
   }
-}
-
-void Char_matrix::make_stream_good() {
-  stream.clear();
-}
-
-std::string Char_matrix::next_line() {
-  std::string line;
-  getline(stream, line);
-  return line;
 }
 
 void Char_matrix::render_line_at(int x, int y, std::string line) {
