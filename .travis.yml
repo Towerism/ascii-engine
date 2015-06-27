@@ -10,16 +10,15 @@ addons:
 
 install:
   - git clone https://github.com/linux-test-project/lcov.git
-  - cd lcov && make install PREFIX=../lcov-installed
-  - export PATH=lcov-installed/usr/bin:$PATH
+  - cd lcov && make install PREFIX=.
+  - export PATH=lcov/usr/bin:$PATH
   - export CXX=g++-5 && export CXX=gcc
+  - alias gcov=gcov-5
   - gem install coveralls-lcov
 
 # script: make coverage
 script:
-  - which g++
-  - which gcc
-  - which gcov
-  - which lcov
+  - gcov --version
+  - lcov --version
 
 # after_success: coveralls-lcov build/coverage/coverage.info.cleaned
