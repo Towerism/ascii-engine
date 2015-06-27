@@ -8,7 +8,11 @@ addons:
       - g++-5
       - gcc-5
 
-install: ci/install.sh
+install:
+  - ci/install_lcov.sh
+  - ci/fix_symlinks.sh
+  - export PATH=$PWD/usr/bin/:$PATH
+  - gem install coveralls-lcov
 
 script: make coverage
 
