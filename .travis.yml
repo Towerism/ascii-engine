@@ -2,15 +2,20 @@ language: cpp
 
 addons:
   apt:
+    sources:
+      - ubuntu-toolchain-r-test
     packages:
       - debootstrap
+      - fakechroot
+      - fakeroot
+      - g++-5
+      - gcc-5
 
 install:
-  - debootstrap precise installed
-  - chroot installed
-  - ci/install_gcc5.sh
-  - ci/install_lcov111.sh
-  - exit # from chroot
+  - fakechroot fakeroot debootstrap precise installed
+  - fakechroot fakeroot chroot installed ci/install_gcc5.sh
+  - fakechroot fakeroot chroot installed ci/install_lcov111.sh
+  - export PATH=installed/usr/bin:$PATH
   - gem install coveralls-lcov
 
 # script: make coverage
