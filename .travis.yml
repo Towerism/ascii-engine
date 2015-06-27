@@ -11,7 +11,6 @@ addons:
 install:
   - PREFIX=installed ci/install_to_custom_path.sh
   - export PATH=$PWD/installed/usr/bin:$PATH
-  - gem install coveralls-lcov
 
 script: make coverage
 
