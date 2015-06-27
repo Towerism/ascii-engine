@@ -7,7 +7,7 @@ Char_matrix::Char_matrix(int width, int height) : width(width), height(height) {
 
 void Char_matrix::init_n_rows_with_value(int n, std::string value) {
   for (int i = 0; i < n; ++i) {
-    strings.push_back(value);
+    lines.push_back(value);
   }
 }
 
@@ -39,20 +39,20 @@ std::string Char_matrix::next_line() {
 }
 
 void Char_matrix::render_line_at(int x, int y, std::string line) {
-  strings[y].replace(x, line.length(), line);
+  lines[y].replace(x, line.length(), line);
   trim_row(y);
 }
 
 void Char_matrix::trim_row(int index) {
-  if (strings[index].length() >= width) {
-    strings[index].erase(width, std::string::npos);
+  if (lines[index].length() >= width) {
+    lines[index].erase(width, std::string::npos);
   }
 }
 
-std::string Char_matrix::string_at_row(int index) const {
-  return strings[index];
+std::string Char_matrix::get_line(int index) const {
+  return lines[index];
 }
 
 bool Char_matrix::is_empty() const {
-  return strings.empty();
+  return lines.empty();
 }

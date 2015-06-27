@@ -11,14 +11,14 @@ public:
 
   void render_at(int x, int y, std::string str);
 
-  std::string string_at_row(int index) const;
+  std::string get_line(int index) const;
   bool is_empty() const;
 
 private:
 
   int width, height;
 
-  std::vector<std::string> strings;
+  std::vector<std::string> lines;
   std::istringstream stream;
 
   void init_n_rows_with_value(int n, std::string value);

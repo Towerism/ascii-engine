@@ -19,8 +19,8 @@ TEST(Renderer, CreateWithDimensions) {
 
   EXPECT_EQ(width, renderer.get_width());
   EXPECT_EQ(height, renderer.get_height());
-  EXPECT_EQ("   ", renderer.get_string_at_row(0));
-  EXPECT_EQ("   ", renderer.get_string_at_row(1));
+  EXPECT_EQ("   ", renderer.get_line(0));
+  EXPECT_EQ("   ", renderer.get_line(1));
 }
 
 TEST(Renderer, AddRenderable) {
@@ -39,7 +39,7 @@ TEST(Renderer, RenderSingleCharacterAtOrigin) {
   renderer.add(renderable);
   renderer.render();
 
-  EXPECT_EQ("@ ", renderer.get_string_at_row(0));
+  EXPECT_EQ("@ ", renderer.get_line(0));
 }
 
 TEST(Renderer, RenderSingleCharacterAtNonOrigin) {
@@ -49,8 +49,8 @@ TEST(Renderer, RenderSingleCharacterAtNonOrigin) {
   renderer.add(renderable);
   renderer.render();
 
-  EXPECT_EQ("  ", renderer.get_string_at_row(0));
-  EXPECT_EQ("@ ", renderer.get_string_at_row(1));
+  EXPECT_EQ("  ", renderer.get_line(0));
+  EXPECT_EQ("@ ", renderer.get_line(1));
 }
 
 TEST(Renderer, RenderMultipleCharacters) {
@@ -60,8 +60,8 @@ TEST(Renderer, RenderMultipleCharacters) {
   renderer.add(renderable);
   renderer.render();
 
-  EXPECT_EQ("  ", renderer.get_string_at_row(0));
-  EXPECT_EQ("@#", renderer.get_string_at_row(1));
+  EXPECT_EQ("  ", renderer.get_line(0));
+  EXPECT_EQ("@#", renderer.get_line(1));
 }
 
 TEST(Renderer, RenderMultipleLines) {
@@ -71,9 +71,9 @@ TEST(Renderer, RenderMultipleLines) {
   renderer.add(renderable);
   renderer.render();
 
-  EXPECT_EQ(" a", renderer.get_string_at_row(0));
-  EXPECT_EQ(" b", renderer.get_string_at_row(1));
-  EXPECT_EQ(" c", renderer.get_string_at_row(2));
+  EXPECT_EQ(" a", renderer.get_line(0));
+  EXPECT_EQ(" b", renderer.get_line(1));
+  EXPECT_EQ(" c", renderer.get_line(2));
 }
 
 TEST(Renderer, RenderMultipleStrings) {
@@ -85,5 +85,5 @@ TEST(Renderer, RenderMultipleStrings) {
   renderer.add(renderable2);
   renderer.render();
 
-  EXPECT_EQ("ab", renderer.get_string_at_row(0));
+  EXPECT_EQ("ab", renderer.get_line(0));
 }
