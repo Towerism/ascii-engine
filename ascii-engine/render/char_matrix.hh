@@ -20,7 +20,6 @@ private:
   std::vector<std::string> lines;
 
   void init_n_rows_with_value(int n, std::string value);
-  std::string next_line();
   void render_line_at(int x, int y, std::string line);
   void trim_row(int index);
 
