@@ -36,8 +36,8 @@ const Renderable* Renderer::get_renderable(int index) const {
   return renderables[index].get();
 }
 
-std::string Renderer::get_string_at_row(int index) const {
-  return char_matrix.string_at_row(index);
+std::string Renderer::get_line(int index) const {
+  return char_matrix.get_line(index);
 }
 
 bool Renderer::char_matrix_is_empty() const {
