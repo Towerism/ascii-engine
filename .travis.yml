@@ -9,7 +9,7 @@ addons:
       - gcc-5
 
 install:
-  - PREFIX=installed ci/install_to_custom_path.sh
+  - ci/install_to_custom_path.sh
   - export PATH=$PWD/usr/bin:$PATH
 
 script: make coverage
