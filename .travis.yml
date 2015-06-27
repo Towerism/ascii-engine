@@ -13,7 +13,7 @@ addons:
 
 install:
   - fakechroot fakeroot debootstrap precise installed
-  - fakechroot fakeroot chroot installed apt-get install wget
+  - fakechroot fakeroot chroot installed apt-get install -y wget
   - fakechroot fakeroot chroot installed ../ci/install_lcov111.sh
   - exit && export CXX=g++-5 && export CXX=gcc
   - export PATH=installed/usr/bin:$PATH
