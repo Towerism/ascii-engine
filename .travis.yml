@@ -1,12 +1,18 @@
 language: cpp
 
 install:
-  - sudo ci/install_gcc5.sh
-  - sudo ci/install_lcov111.sh
+  - debootstrap precise installed
+  - chroot installed
+  - ci/install_gcc5.sh
+  - ci/install_lcov111.sh
+  - exit # from chroot
   - gem install coveralls-lcov
 
+# script: make coverage
 script:
-  - make coverage
+  - which g++
+  - which gcc
+  - which gcov
+  - which lcov
 
-after_success:
-  - coveralls-lcov build/coverage/coverage.info.cleaned
+# after_success: coveralls-lcov build/coverage/coverage.info.cleaned
