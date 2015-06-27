@@ -1,7 +1,7 @@
 
 # install lcov
 git clone https://github.com/linux-test-project/lcov.git
-mkdir -p installed && cd lcov && make install PREFIX=.. && cd ..
+make install PREFIX=. -s C lcov
 
 # Create symlinks for new gcc binaries
 ln -s $(which g++-5) usr/bin/g++
