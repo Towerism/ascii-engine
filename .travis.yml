@@ -1,12 +1,17 @@
 language: cpp
 
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-5
+      - gcc-5
+
 install:
-  - sudo ci/install_gcc5.sh
-  - sudo ci/install_lcov111.sh
-  - gem install coveralls-lcov
+  - ci/install_to_custom_path.sh
+  - export PATH=$PWD/usr/bin:$PATH
 
-script:
-  - make coverage
+script: make coverage
 
-after_success:
-  - coveralls-lcov build/coverage/coverage.info.cleaned
+after_success: coveralls-lcov build/coverage/coverage.info.cleaned
