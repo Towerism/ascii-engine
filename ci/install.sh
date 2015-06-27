@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# install lcov
+# install cov
 git clone https://github.com/linux-test-project/lcov.git
 mkdir -p installed && cd lcov && make install PREFIX=.. && cd ..
 
