@@ -5,18 +5,14 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - debootstrap
-      - fakechroot
-      - fakeroot
       - g++-5
       - gcc-5
 
 install:
-  - fakechroot fakeroot debootstrap precise installed
-  - fakechroot fakeroot chroot installed apt-get install -y wget
-  - fakechroot fakeroot chroot installed ../ci/install_lcov111.sh
-  - exit && export CXX=g++-5 && export CXX=gcc
-  - export PATH=installed/usr/bin:$PATH
+  - git clone git clone https://github.com/linux-test-project/lcov.git
+  - cd lcov && make install PREFIX=../lcov-installed
+  - export PATH=lcov-installed/usr/bin:$PATH
+  - export CXX=g++-5 && export CXX=gcc
   - gem install coveralls-lcov
 
 # script: make coverage
