@@ -10,7 +10,7 @@ addons:
 
 install:
   - git clone https://github.com/linux-test-project/lcov.git
-  - cd lcov && make install PREFIX=.
+  - cd lcov && make install PREFIX=. && cd ..
   - export PATH=$PWD/lcov/usr/bin:$PATH
   - export CXX=g++-5 && export CXX=gcc
   - chmod 777 -R lcov && cp $(which gcov-5) lcov/usr/bin/
