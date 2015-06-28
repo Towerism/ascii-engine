@@ -44,9 +44,9 @@ clean::
 	@echo "-- Done"
 
 
-# take the double# comments and display them in a nice help message
 help:: ##show this help
 	@echo "The following are some of the valid targets for this Makefile:"
+help display-doublehash-help-comments::
 	@sed -n '/##/p' $(MAKEFILE_LIST) \
    | sed -e '/sed/d' -e 's/##//' -e 's/^/\.\.\. /' -e 's/ /+/g' -e 's/::/ +-/g' \
    | column -t -s " " | sed 's/+/ /g'
