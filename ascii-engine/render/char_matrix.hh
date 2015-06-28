@@ -12,7 +12,6 @@ public:
   void render_at(int x, int y, std::string str);
 
   std::vector<std::string> get_lines() const;
-  bool is_empty() const;
 
 private:
 

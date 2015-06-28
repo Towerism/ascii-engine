@@ -39,11 +39,3 @@ int Renderer::get_height() const {
 const Renderable* Renderer::get_renderable(int index) const {
   return renderables[index].get();
 }
-
-std::string Renderer::get_line(int index) const {
-  return "";
-}
-
-bool Renderer::char_matrix_is_empty() const {
-  return char_matrix.is_empty();
-}
