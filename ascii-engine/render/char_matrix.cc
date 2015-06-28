@@ -14,6 +14,10 @@ void Char_matrix::init_n_rows_with_value(int n, std::string value) {
 
 void Char_matrix::render_at(int x, int y, std::string str) {
   Line_extractor extractor(str);
+  render_lines_at(x, y, extractor);
+}
+
+void Char_matrix::render_lines_at(int x, int y, Line_extractor& extractor) {
   for (int i = y; extractor.there_are_more_lines(); ++i) {
     std::string line = extractor.next_line();
     render_line_at(x, i, line);

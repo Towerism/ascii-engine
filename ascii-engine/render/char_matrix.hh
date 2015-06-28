@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include "line_extractor.hh"
 
 class Char_matrix {
 public:
@@ -20,6 +21,7 @@ private:
   std::vector<std::string> lines;
 
   void init_n_rows_with_value(int n, std::string value);
+  void render_lines_at(int x, int y, Line_extractor& extractor);
   void render_line_at(int x, int y, std::string line);
   void trim_row(int index);
 
