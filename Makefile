@@ -1,4 +1,6 @@
-.PHONY:: all generate compile test clean-build
+.PHONY:: all build-dir generate compile test cmake-test-flags \
+         run-tests coverage cmake-coverage-flags build-coveralls \
+         clean clean-build
 .DEFAULT:: all
 
 CMAKE_FLAGS=
