@@ -13,6 +13,7 @@ public:
 
   void add(Renderable* renderable);
   void render();
+  std::vector<std::string> display() const;
 
   int get_width() const;
   int get_height() const;

@@ -35,8 +35,8 @@ void Char_matrix::trim_row(int index) {
   }
 }
 
-std::string Char_matrix::get_line(int index) const {
-  return lines[index];
+std::vector<std::string> Char_matrix::get_lines() const {
+  return lines;
 }
 
 bool Char_matrix::is_empty() const {
