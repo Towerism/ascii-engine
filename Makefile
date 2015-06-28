@@ -44,6 +44,7 @@ clean::
 	@echo "-- Done"
 
 
+# take the double# comments and display them in a nice help message
 help:: ##show this help
 	@echo "The following are some of the valid targets for this Makefile:"
 	@sed -n '/##/p' $(MAKEFILE_LIST) \
