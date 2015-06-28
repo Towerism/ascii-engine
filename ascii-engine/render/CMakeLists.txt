@@ -1,5 +1,5 @@
 set(RENDER_SRCS char_matrix.cc
-                line_separator.cc
+                line_extractor.cc
                 renderable.cc
                 renderer.cc
                 )

@@ -3,10 +3,10 @@
 #include<string>
 #include<sstream>
 
-class Line_separator {
+class Line_extractor {
 public:
 
-  Line_separator(std::string str);
+  Line_extractor(std::string str);
 
   std::string next_line();
 

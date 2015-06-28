@@ -1,5 +1,5 @@
 #include "char_matrix.hh"
-#include "line_separator.hh"
+#include "line_extractor.hh"
 
 Char_matrix::Char_matrix(int width, int height) : width(width), height(height) {
   std::string empty_row(width, ' ');
@@ -13,9 +13,9 @@ void Char_matrix::init_n_rows_with_value(int n, std::string value) {
 }
 
 void Char_matrix::render_at(int x, int y, std::string str) {
-  Line_separator separator(str);
-  for (int i = y; separator.there_are_more_lines(); ++i) {
-    std::string line = separator.next_line();
+  Line_extractor extractor(str);
+  for (int i = y; extractor.there_are_more_lines(); ++i) {
+    std::string line = extractor.next_line();
     render_line_at(x, i, line);
   }
 }
