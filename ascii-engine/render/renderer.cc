@@ -24,6 +24,10 @@ void Renderer::render_renderable(std::shared_ptr<Renderable> renderable) {
   char_matrix.render_at(x, y, str);
 }
 
+std::vector<std::string> Renderer::display() const {
+  return char_matrix.get_lines();
+}
+
 int Renderer::get_width() const {
   return width;
 }
@@ -34,12 +38,4 @@ int Renderer::get_height() const {
 
 const Renderable* Renderer::get_renderable(int index) const {
   return renderables[index].get();
-}
-
-std::string Renderer::get_line(int index) const {
-  return char_matrix.get_line(index);
-}
-
-bool Renderer::char_matrix_is_empty() const {
-  return char_matrix.is_empty();
 }

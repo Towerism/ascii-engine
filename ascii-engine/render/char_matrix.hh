@@ -11,8 +11,7 @@ public:
 
   void render_at(int x, int y, std::string str);
 
-  std::string get_line(int index) const;
-  bool is_empty() const;
+  std::vector<std::string> get_lines() const;
 
 private:
 

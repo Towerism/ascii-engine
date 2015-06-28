@@ -5,10 +5,12 @@
 
 TEST(Renderer, CreateDefault) {
   Renderer renderer;
+  renderer.render();
+  std::vector<std::string> lines = renderer.display();
 
   EXPECT_EQ(0, renderer.get_width());
   EXPECT_EQ(0, renderer.get_height());
-  EXPECT_TRUE(renderer.char_matrix_is_empty());
+  EXPECT_TRUE(lines.empty());
 }
 
 TEST(Renderer, CreateWithDimensions) {
@@ -16,11 +18,13 @@ TEST(Renderer, CreateWithDimensions) {
   int height = 2;
 
   Renderer renderer(3, 2);
+  renderer.render();
+  std::vector<std::string> lines = renderer.display();
 
   EXPECT_EQ(width, renderer.get_width());
   EXPECT_EQ(height, renderer.get_height());
-  EXPECT_EQ("   ", renderer.get_line(0));
-  EXPECT_EQ("   ", renderer.get_line(1));
+  EXPECT_EQ("   ", lines[0]);
+  EXPECT_EQ("   ", lines[1]);
 }
 
 TEST(Renderer, AddRenderable) {
@@ -38,8 +42,9 @@ TEST(Renderer, RenderSingleCharacterAtOrigin) {
 
   renderer.add(renderable);
   renderer.render();
+  std::vector<std::string> lines = renderer.display();
 
-  EXPECT_EQ("@ ", renderer.get_line(0));
+  EXPECT_EQ("@ ", lines[0]);
 }
 
 TEST(Renderer, RenderSingleCharacterAtNonOrigin) {
@@ -48,9 +53,10 @@ TEST(Renderer, RenderSingleCharacterAtNonOrigin) {
 
   renderer.add(renderable);
   renderer.render();
+  std::vector<std::string> lines = renderer.display();
 
-  EXPECT_EQ("  ", renderer.get_line(0));
-  EXPECT_EQ("@ ", renderer.get_line(1));
+  EXPECT_EQ("  ", lines[0]);
+  EXPECT_EQ("@ ", lines[1]);
 }
 
 TEST(Renderer, RenderMultipleCharacters) {
@@ -59,9 +65,10 @@ TEST(Renderer, RenderMultipleCharacters) {
 
   renderer.add(renderable);
   renderer.render();
+  std::vector<std::string> lines = renderer.display();
 
-  EXPECT_EQ("  ", renderer.get_line(0));
-  EXPECT_EQ("@#", renderer.get_line(1));
+  EXPECT_EQ("  ", lines[0]);
+  EXPECT_EQ("@#", lines[1]);
 }
 
 TEST(Renderer, RenderMultipleLines) {
@@ -70,10 +77,11 @@ TEST(Renderer, RenderMultipleLines) {
 
   renderer.add(renderable);
   renderer.render();
+  std::vector<std::string> lines = renderer.display();
 
-  EXPECT_EQ(" a", renderer.get_line(0));
-  EXPECT_EQ(" b", renderer.get_line(1));
-  EXPECT_EQ(" c", renderer.get_line(2));
+  EXPECT_EQ(" a", lines[0]);
+  EXPECT_EQ(" b", lines[1]);
+  EXPECT_EQ(" c", lines[2]);
 }
 
 TEST(Renderer, RenderMultipleStrings) {
@@ -84,6 +92,7 @@ TEST(Renderer, RenderMultipleStrings) {
   renderer.add(renderable1);
   renderer.add(renderable2);
   renderer.render();
+  std::vector<std::string> lines = renderer.display();
 
-  EXPECT_EQ("ab", renderer.get_line(0));
+  EXPECT_EQ("ab", lines[0]);
 }
