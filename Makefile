@@ -46,4 +46,6 @@ clean::
 
 help:: ##show this help
 	@echo "The following are some of the valid targets for this Makefile:"
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//' | sed 's/^/\.\.\. /' | sed 's/ /+/g' | sed 's/::/ ++++-+/g' | column -t -s " " | sed 's/+/ /g'
+	@sed -n '/##/p' $(MAKEFILE_LIST) \
+   | sed -e '/sed/d' -e 's/##//' -e 's/^/\.\.\. /' -e 's/ /+/g' -e 's/::/ +-/g' \
+   | column -t -s " " | sed 's/+/ /g'
