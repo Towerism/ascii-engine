@@ -16,4 +16,4 @@ install:
 
 script: make coverage
 
-after_success: coveralls-lcov build/coverage/coverage.info.cleaned 
+after_success: ci/upload_coverage.sh
