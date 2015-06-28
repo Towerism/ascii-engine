@@ -6,7 +6,7 @@ Char_matrix::Char_matrix(int width, int height) : width(width), height(height) {
   init_n_rows_with_value(height, empty_row);
 }
 
-void Char_matrix::init_n_rows_with_value(int n, std::string value) {
+void Char_matrix::init_n_rows_with_value(int n, std::string& value) {
   for (int i = 0; i < n; ++i) {
     lines.push_back(value);
   }
@@ -24,7 +24,7 @@ void Char_matrix::render_lines_at(int x, int y, Line_extractor& extractor) {
   }
 }
 
-void Char_matrix::render_line_at(int x, int y, std::string line) {
+void Char_matrix::render_line_at(int x, int y, std::string& line) {
   lines[y].replace(x, line.length(), line);
   trim_row(y);
 }
