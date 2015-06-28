@@ -1,40 +1,33 @@
-.PHONY:: all build-dir generate compile test cmake-test-flags \
-         run-tests coverage cmake-coverage-flags build-coveralls \
-         clean clean-build
-.DEFAULT:: all
-
 CMAKE_FLAGS=
 
-all::
-	@echo "-- Starting Build"
 
-#### CMake and Compiling
+.PHONY:: all test cmake-test-flags run-tests \
+         coverage cmake-coverage-flags build-coveralls \
+         build-dir generate compile clean clean-build
 
-all build-dir::
-	@mkdir -p build
-all generate:: build-dir
-	@cd build && cmake $(CMAKE_FLAGS) ..
-all compile::
-	@make -s -C build
+.DEFAULT:: all
+all:: test
 
-all::
-	@echo "-- Done"
-
-#### Testing
 
 test cmake-test-flags::
-	$(eval CMAKE_FLAGS := -DENABLE_TESTING=1)
+	$(eval CMAKE_FLAGS := -DENABLE_TESTING=ON)
 test run-tests:: generate compile
 	@make run-tests -s -C build
 
-#### Coveralls
 
 coverage cmake-coverage-flags::
-	$(eval CMAKE_FLAGS := -DENABLE_TESTING=1 -DENABLE_COVERAGE=1)
+	$(eval CMAKE_FLAGS := -DENABLE_TESTING=ON -DENABLE_COVERAGE=ON)
 coverage build-coveralls:: generate compile
 	@make coverage -s -C build
 
-#### Cleaning
+
+build-dir::
+	@mkdir -p build
+generate:: build-dir
+	@cd build && cmake $(CMAKE_FLAGS) ..
+compile::
+	@make -s -C build
+
 
 clean::
 	@echo "-- Cleaning"
