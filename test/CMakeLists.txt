@@ -10,7 +10,7 @@ target_link_libraries(ascii_engine_test_suite ${TEST_SUITE_LIBS})
 
 run_test(ascii_engine_test_suite)
 
-if (ENABLE_COVERAGE)
+if (ENABLE_COVERAGE AND NOT WIN32 AND NOT APPLE)
   include(code_coverage)
   setup_target_for_coverage(
     coverage
