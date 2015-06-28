@@ -12,9 +12,8 @@ void Renderer::add(Renderable* renderable) {
 }
 
 void Renderer::render() {
-  for (auto renderable : renderables) {
+  for (auto renderable : renderables)
     render_renderable(renderable);
-  }
 }
 
 void Renderer::render_renderable(std::shared_ptr<Renderable> renderable) {

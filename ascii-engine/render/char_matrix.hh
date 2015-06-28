@@ -18,10 +18,11 @@ private:
   int width, height;
 
   std::vector<std::string> lines;
+  Line_extractor extractor;
 
   void init_n_rows_with_value(int n, std::string& value);
-  void render_lines_at(int x, int y, Line_extractor& extractor);
-  void render_line_at(int x, int y, std::string& line);
+  void render_lines_at(int x, int y);
+  void render_next_line_at(int x, int y);
   void trim_row(int index);
 
 };
