@@ -8,11 +8,11 @@ PROJECT_NAME=ASCII-Engine Library
          compile build-dir generate clean clean-build
 
 .DEFAULT:: all
-all:: ##compile and test
+all:: ##same as test
 all:: test
 
 
-test:: ##compile and test
+test:: ##compile and run test suite
 test cmake-test-flags::
 	$(eval CMAKE_FLAGS := -DENABLE_TESTING=ON)
 test run-tests:: compile
