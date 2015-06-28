@@ -11,13 +11,13 @@ all:: test
 
 test cmake-test-flags::
 	$(eval CMAKE_FLAGS := -DENABLE_TESTING=ON)
-test run-tests:: generate compile
+test run-tests:: generate
 	@make run-tests -s -C build
 
 
 coverage cmake-coverage-flags::
 	$(eval CMAKE_FLAGS := -DENABLE_TESTING=ON -DENABLE_COVERAGE=ON)
-coverage build-coveralls:: generate compile
+coverage build-coveralls:: generate
 	@make coverage -s -C build
 
 
