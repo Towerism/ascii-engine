@@ -1,5 +1,4 @@
 include(configure_test_suite)
-include_directories(../lib/googletest/include)
 add_subdirectory(unit)
 
 get_test_sources(TEST_SRCS)
