@@ -3,7 +3,7 @@ CMAKE_FLAGS=
 
 .PHONY:: all test cmake-test-flags run-tests \
          coverage cmake-coverage-flags build-coveralls \
-         build-dir generate compile clean clean-build
+         compile build-dir generate clean clean-build
 
 .DEFAULT:: all
 all:: test
@@ -21,9 +21,9 @@ coverage build-coveralls:: generate
 	@make coverage -s -C build
 
 
-build-dir::
+compile generate build-dir::
 	@mkdir -p build
-generate:: build-dir
+compile generate::
 	@cd build && cmake $(CMAKE_FLAGS) ..
 compile::
 	@make -s -C build
