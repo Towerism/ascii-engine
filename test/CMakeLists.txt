@@ -1,12 +1,14 @@
 include(configure_test_suite)
+
 add_subdirectory(unit)
 
 get_test_sources(TEST_SRCS)
-
 add_executable(ascii_engine_test_suite ${TEST_SRCS})
 
 set(TEST_SUITE_LIBS gtest gtest_main ascii_engine)
 target_link_libraries(ascii_engine_test_suite ${TEST_SUITE_LIBS})
+
+run_test(ascii_engine_test_suite)
 
 if (ENABLE_COVERAGE)
   include(code_coverage)
@@ -16,6 +18,3 @@ if (ENABLE_COVERAGE)
     coverage
   )
 endif()
-
-
-run_test(ascii_engine_test_suite)
