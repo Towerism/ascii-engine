@@ -2,9 +2,13 @@
 An ascii-based text manipulation engine
 
 ## Requirements
+* Linux or Mac OSX
 * GCC 4.9+
 * CMake 2.8.7+
-* GNU Make 4.1+
+* GNU Make 4.1+ or Ninja 1.5.3+
+Windows is probably okay but technically not supported.
+
+On another note, ninja is technically faster than make, but this won't be noticeable until the library gets bigger.
 
 ## Clone
 ```
@@ -16,11 +20,19 @@ $ cd ascii-engine
 ```
 $ make
 ```
+or
+```
+$ ninja
+```
 Compiling with your project is easy, just hook up the main `CMakeLists.txt` with your own CMake build system.
 
 ## Testing
 ```
 $ make test
+```
+or
+```
+$ ninja test
 ```
 
 ## Link with your project
