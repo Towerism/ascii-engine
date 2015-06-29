@@ -3,10 +3,12 @@ language: cpp
 addons:
   apt:
     sources:
+      - kalakris-cmake
       - ubuntu-toolchain-r-test
     packages:
       - g++-5
       - gcc-5
+      - cmake
 
 env:
   - BUILD_SYSTEM=make
