@@ -7,7 +7,7 @@ macro(run_test test_target)
   add_custom_command(
     TARGET run-tests
     POST_BUILD
-    COMMAND ${test_target}
+    COMMAND ${test_target} --gtest_color=yes
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/test")
   add_dependencies(run-tests ${test_target})
 endmacro()
