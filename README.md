@@ -12,7 +12,7 @@ On another note, ninja is technically faster than make, but this won't be notice
 
 ## Clone
 ```
-$ git clone git@github.com:towerism/ascii-engine
+$ git clone --recursive git@github.com:towerism/ascii-engine
 $ cd ascii-engine
 ```
 
