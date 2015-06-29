@@ -7,7 +7,6 @@ addons:
     packages:
       - g++-5
       - gcc-5
-      - ninja-build
 
 env:
   - BUILD_SYSTEM=make
@@ -15,6 +14,7 @@ env:
 
 install:
   - ci/install_lcov.sh
+  - if [ "$BUILD_SYSTEM" == "ninja" ]; then ci/install_ninja.sh
   - gem install coveralls-lcov
   - ci/fix_symlinks.sh
   - export PATH=$PWD/usr/bin/:$PATH
