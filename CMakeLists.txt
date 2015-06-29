@@ -17,6 +17,7 @@ include_directories(include/ascii-engine)
 include_directories(.)
 
 add_subdirectory(ascii-engine)
+add_subdirectory(lib)
 
 if (${ENABLE_TESTING}) 
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)
