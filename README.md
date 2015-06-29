@@ -15,6 +15,7 @@ $ cd ascii-engine
 ```
 ## Compile
 `$ make` or `$ ninja`
+
 Compiling with your project is easy, just hook up the main `CMakeLists.txt` with your own CMake build system.
 
 As far as using `make` or `ninja`, it doesn't really matter if you just want to use the ASCII-Engine library.  But if you plan on contributing and doing incremental builds, then you will probably want to use `ninja`, especially as the library gets the larger.
