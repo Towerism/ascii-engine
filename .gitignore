@@ -29,3 +29,5 @@
 
 # Project specific
 /build/
+/.ninja_deps
+/.ninja_log
