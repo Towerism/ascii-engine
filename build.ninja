@@ -1,10 +1,10 @@
 include rules.ninja
 
-build create-build-dir: CREATE_BUILD_DIR
+build create-compile-dir: CREATE_COMPILE_DIR
 
-build generate: GENERATE create-build-dir
-build generate-test: GENERATE_TEST create-build-dir
-build generate-coverage: GENERATE_COVERAGE create-build-dir
+build generate: GENERATE create-compile-dir
+build generate-test: GENERATE_TEST create-compile-dir
+build generate-coverage: GENERATE_COVERAGE create-compile-dir
 
 build compile: COMPILE generate
 build compile-test: COMPILE generate-test
