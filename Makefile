@@ -1,10 +1,9 @@
-MAKE=make -s
-BUILD_DIR=build
-GENERATOR=-G"Unix Makefiles"
-CMAKE_FLAGS=
+MAKE := make -s
+BUILD_DIR := build
+GENERATOR := Unix Makefiles
+CMAKE_FLAGS :=
 
-PROJECT_NAME=ASCII-Engine Library
-
+PROJECT_NAME := ASCII-Engine Library
 
 .PHONY:: all test cmake-test-flags run-tests \
          coverage cmake-coverage-flags build-coveralls \
@@ -33,7 +32,7 @@ compile:: ##just compile
 compile generate build-dir::
 	@mkdir -p $(BUILD_DIR)
 compile generate::
-	@cd $(BUILD_DIR) && cmake $(CMAKE_FLAGS) $(GENERATOR) ..
+	@cd $(BUILD_DIR) && cmake $(CMAKE_FLAGS) -G"$(GENERATOR)" ..
 compile::
 	@$(MAKE) -C $(BUILD_DIR)
 
