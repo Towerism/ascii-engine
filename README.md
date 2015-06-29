@@ -11,9 +11,10 @@ Windows is probably okay but technically not supported.
 
 ## Clone
 ```
-$ git clone --recursive git@github.com:towerism/ascii-engine
+$ git clone --recursive git://github.com/towerism/ascii-engine.git
 $ cd ascii-engine
 ```
+Also feel free to fork this repository to make your own changes.
 ## Compile
 `$ make` or `$ ninja`
 
