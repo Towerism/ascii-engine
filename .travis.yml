@@ -14,7 +14,7 @@ env:
 
 install:
   - ci/install_lcov.sh
-  - if [ "$BUILD_SYSTEM" == "ninja" ]; then ci/install_ninja.sh
+  - if [ "$BUILD_SYSTEM" == "ninja" ]; then ci/install_ninja.sh fi
   - gem install coveralls-lcov
   - ci/fix_symlinks.sh
   - export PATH=$PWD/usr/bin/:$PATH
