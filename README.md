@@ -15,20 +15,36 @@ $ git clone --recursive git://github.com/towerism/ascii-engine.git
 $ cd ascii-engine
 ```
 Also feel free to fork this repository to make your own changes.
+
 ## Compile
+`$ make` or `$ninja`
+
+
+Compiling with your project is easy, just hook up the main `CMakeLists.txt` with your own
+CMake build system.
+
+As far as using `make` or `ninja`, it doesn't really matter if you just want to use the
+ASCII-Engine library.  But if you plan on contributing and doing incremental builds, then
+you will probably want to use `ninja`, especially as the library gets the larger.
+
+## Two different build systems
 Two different build systems are supported:
 
 *`make`
 *`ninja`
 
 Both are generated using CMake, and there are automated front ends for each CMake generator.
-Simply use `$ make` or `$ ninja` to use the respective front end.  Or if you prefer to use
-the `make` frontend and still use `ninja`, you can apply the following patch:
-`$ git apply makefile-use-ninja.patch`.  Then `$ make` will generate the `ninja` build system.
+Simply use `$ make` or `$ ninja` to use the respective front end.  Each front end has the
+necessary rules for building and testing.  Or if you prefer to use
 
-Compiling with your project is easy, just hook up the main `CMakeLists.txt` with your own CMake build system.
-
-As far as using `make` or `ninja`, it doesn't really matter if you just want to use the ASCII-Engine library.  But if you plan on contributing and doing incremental builds, then you will probably want to use `ninja`, especially as the library gets the larger.
+If you would like to use `make` frontend for `ninja` build system instead, you can apply the
+following patch:
+```
+$ git apply makefile-use-ninja.patch
+```
+Then `$ make` will generate, use, and refer to the `ninja` build system.  In otherwords, any
+rule in the Makefile will be communicating with the `ninja` build system instead of the`make`
+build system.
 
 ## Testing
 `$ make test` or `$ ninja test`
