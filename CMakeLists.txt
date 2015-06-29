@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.7 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.8.11 FATAL_ERROR)
 
 option(ENABLE_TESTING "Enable tests" OFF)
 option(ENABLE_COVERAGE "Enable test coverage analysis (debug, linux builds only)" OFF)
@@ -17,6 +17,7 @@ include_directories(include/ascii-engine)
 include_directories(.)
 
 add_subdirectory(ascii-engine)
+add_subdirectory(lib)
 
 if (${ENABLE_TESTING}) 
   set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build)

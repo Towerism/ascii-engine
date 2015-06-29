@@ -3,17 +3,24 @@ language: cpp
 addons:
   apt:
     sources:
+      - kalakris-cmake
       - ubuntu-toolchain-r-test
     packages:
       - g++-5
       - gcc-5
+      - cmake
+
+env:
+  - BUILD_SYSTEM=make
+  - BUILD_SYSTEM=ninja
 
 install:
   - ci/install_lcov.sh
+  - if [ "$BUILD_SYSTEM" == "ninja" ]; then ci/install_ninja.sh; fi
   - gem install coveralls-lcov
   - ci/fix_symlinks.sh
   - export PATH=$PWD/usr/bin/:$PATH
 
-script: make coverage
+script: $BUILD_SYSTEM coverage
 
 after_success: ci/upload_coverage.sh

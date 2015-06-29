@@ -1,3 +1,6 @@
+MAKE=make -s
+BUILD_DIR=build
+GENERATOR=-G"Unix Makefiles"
 CMAKE_FLAGS=
 
 PROJECT_NAME=ASCII-Engine Library
@@ -16,30 +19,30 @@ test:: ##compile and run test suite
 test cmake-test-flags::
 	$(eval CMAKE_FLAGS := -DENABLE_TESTING=ON)
 test run-tests:: compile
-	@make run-tests/fast -s -C build
+	@$(MAKE) run-tests -C $(BUILD_DIR)
 
 
 coverage:: ##generate coverage analysis
 coverage cmake-coverage-flags::
 	$(eval CMAKE_FLAGS := -DENABLE_TESTING=ON -DENABLE_COVERAGE=ON)
 coverage build-coveralls:: compile
-	@make coverage/fast -s -C build
+	@$(MAKE) coverage -C $(BUILD_DIR)
 
 
 compile:: ##just compile
 compile generate build-dir::
-	@mkdir -p build
+	@mkdir -p $(BUILD_DIR)
 compile generate::
-	@cd build && cmake $(CMAKE_FLAGS) ..
+	@cd $(BUILD_DIR) && cmake $(CMAKE_FLAGS) $(GENERATOR) ..
 compile::
-	@make -s -C build
+	@$(MAKE) -C $(BUILD_DIR)
 
 
 clean:: ##clean build system
 	@echo "-- Cleaning"
 clean clean-build::
-	@echo "-- Removing Build"
-	@rm -rf build
+	@echo "-- Removing Build Directory"
+	@rm -rf $(BUILD_DIR)
 clean::
 	@echo "-- Done"
 

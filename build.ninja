@@ -1,0 +1,21 @@
+include rules.ninja
+
+build create-build-dir: CREATE_BUILD_DIR
+
+build generate: GENERATE create-build-dir
+build generate-test: GENERATE_TEST create-build-dir
+build generate-coverage: GENERATE_COVERAGE create-build-dir
+
+build compile: COMPILE generate
+build compile-test: COMPILE generate-test
+build compile-coverage: COMPILE generate-coverage
+
+build test: TEST compile-test
+  pool = console
+build coverage: COVERAGE compile-coverage
+
+build all: phony test
+build clean: CLEAN
+build help: HELP
+
+default all

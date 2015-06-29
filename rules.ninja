@@ -1,0 +1,39 @@
+CMAKE=cmake
+BUILD_DIR=build
+GENERATOR=-G"Ninja"
+
+rule CREATE_BUILD_DIR
+  command = mkdir -p $BUILD_DIR
+  description = Creating build directory
+
+rule GENERATE
+  command = cd $BUILD_DIR && $CMAKE $GENERATOR ..
+  description = Generating ninja files
+
+rule GENERATE_TEST
+  command = cd $BUILD_DIR && $CMAKE -DENABLE_TESTING=ON $GENERATOR ..
+  description = Generating ninja files for test build
+
+rule GENERATE_COVERAGE
+  command = cd $BUILD_DIR && $CMAKE -DENABLE_TESTING=ON -DENABLE_COVERAGE=ON $GENERATOR ..
+  description = Generating ninja files for coverage build
+
+rule COMPILE
+  command = ninja -C $BUILD_DIR
+  description = Compiling build
+
+rule TEST
+  command = ninja run-tests -C $BUILD_DIR
+  description = Running tests
+
+rule COVERAGE
+  command = ninja coverage -C $BUILD_DIR
+  description = Generating test coverage analysis
+
+rule CLEAN
+  command = rm -rf $BUILD_DIR
+  description = Cleaning build directory
+
+rule HELP
+  command = ninja -t targets
+  description = All primary targets available:

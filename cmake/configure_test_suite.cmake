@@ -1,5 +1,3 @@
-include(configure_gtest)
-
 add_custom_target(run-tests)
 file(WRITE ${CMAKE_BINARY_DIR}/test_sources "")
 
@@ -7,7 +5,7 @@ macro(run_test test_target)
   add_custom_command(
     TARGET run-tests
     POST_BUILD
-    COMMAND ${test_target}
+    COMMAND ${test_target} --gtest_color=yes
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/test")
   add_dependencies(run-tests ${test_target})
 endmacro()
