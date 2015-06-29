@@ -5,7 +5,8 @@ An ascii-based text manipulation engine
 * Linux or Mac OSX
 * GCC 4.9+
 * CMake 2.8.7+
-* GNU Make 4.1+ or Ninja 1.5.3+
+* GNU Make 4.1+ or [Ninja](http://martine.github.io/ninja/) 1.5.3+
+
 Windows is probably okay but technically not supported.
 
 ## Clone
