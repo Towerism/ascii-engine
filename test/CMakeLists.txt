@@ -1,4 +1,5 @@
 include(configure_test_suite)
+include_directories(${CMAKE_SOURCE_DIR}/lib/googletest/include)
 
 add_subdirectory(unit)
 
