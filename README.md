@@ -29,9 +29,8 @@ you will probably want to use `ninja`, especially as the library gets the larger
 
 ## Two different build systems
 Two different build systems are supported:
-
-*`make`
-*`ninja`
+* `make`
+* `ninja`
 
 Both are generated using CMake, and there are automated front ends for each CMake generator.
 Simply use `$ make` or `$ ninja` to use the respective front end.  Each front end has the
