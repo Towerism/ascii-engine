@@ -34,7 +34,7 @@ Two different build systems are supported:
 
 Both are generated using CMake, and there are automated front ends for each CMake generator.
 Simply use `$ make` or `$ ninja` to use the respective front end.  Each front end has the
-necessary rules for building and testing.  Or if you prefer to use
+necessary rules for building and testing.
 
 If you would like to use `make` frontend for `ninja` build system instead, you can apply the
 following patch:
