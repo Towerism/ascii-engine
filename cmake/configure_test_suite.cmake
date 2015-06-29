@@ -1,5 +1,3 @@
-include(configure_gtest)
-
 add_custom_target(run-tests)
 file(WRITE ${CMAKE_BINARY_DIR}/test_sources "")
 
