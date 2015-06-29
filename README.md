@@ -16,7 +16,14 @@ $ cd ascii-engine
 ```
 Also feel free to fork this repository to make your own changes.
 ## Compile
-`$ make` or `$ ninja`
+Two different build systems are supported:
+*`make`
+*`ninja`
+
+Both are generated using CMake, and there are automated front ends for each CMake generator.
+Simply use `$ make` or `$ ninja` to use the respective front end.  Or if you prefer to use
+the `make` frontend and still use `ninja`, you can apply the following patch:
+`$ git apply makefile-use-ninja.patch`.  Then `$ make` will generate the `ninja` build system.
 
 Compiling with your project is easy, just hook up the main `CMakeLists.txt` with your own CMake build system.
 
