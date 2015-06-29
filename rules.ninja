@@ -26,6 +26,7 @@ rule COMPILE
 
 rule TEST
   command = ninja run-tests -C $COMPILE_DIR
+  pool = console
   description = Running tests
 
 rule COVERAGE

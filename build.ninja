@@ -11,7 +11,6 @@ build compile-test: COMPILE generate-test
 build compile-coverage: COMPILE generate-coverage
 
 build test: TEST compile-test
-  pool = console
 build coverage: COVERAGE compile-coverage
 
 build all: phony test
