@@ -17,6 +17,7 @@ $ cd ascii-engine
 Also feel free to fork this repository to make your own changes.
 ## Compile
 Two different build systems are supported:
+
 *`make`
 *`ninja`
 
