@@ -7,6 +7,11 @@ addons:
     packages:
       - g++-5
       - gcc-5
+      - ninja-build
+
+env:
+  - BUILD_SYSTEM=make
+  - BUILD_SYSTEM=ninja
 
 install:
   - ci/install_lcov.sh
@@ -14,6 +19,6 @@ install:
   - ci/fix_symlinks.sh
   - export PATH=$PWD/usr/bin/:$PATH
 
-script: make coverage
+script: $BUILD_SYSTEM coverage
 
 after_success: ci/upload_coverage.sh
