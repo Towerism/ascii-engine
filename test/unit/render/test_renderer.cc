@@ -5,8 +5,7 @@
 
 TEST(Renderer, CreateDefault) {
   Renderer renderer;
-  renderer.render();
-  std::vector<std::string> lines = renderer.display();
+  std::vector<std::string> lines = renderer.render();
 
   EXPECT_EQ(0, renderer.get_width());
   EXPECT_EQ(0, renderer.get_height());
@@ -18,8 +17,7 @@ TEST(Renderer, CreateWithDimensions) {
   int height = 2;
 
   Renderer renderer(3, 2);
-  renderer.render();
-  std::vector<std::string> lines = renderer.display();
+  std::vector<std::string> lines = renderer.render();
 
   EXPECT_EQ(width, renderer.get_width());
   EXPECT_EQ(height, renderer.get_height());
@@ -41,8 +39,7 @@ TEST(Renderer, RenderSingleCharacterAtOrigin) {
   Renderer renderer(2, 2);
 
   renderer.add(renderable);
-  renderer.render();
-  std::vector<std::string> lines = renderer.display();
+  std::vector<std::string> lines = renderer.render();
 
   EXPECT_EQ("@ ", lines[0]);
 }
@@ -52,8 +49,7 @@ TEST(Renderer, RenderSingleCharacterAtNonOrigin) {
   Renderer renderer(2, 2);
 
   renderer.add(renderable);
-  renderer.render();
-  std::vector<std::string> lines = renderer.display();
+  std::vector<std::string> lines = renderer.render();
 
   EXPECT_EQ("  ", lines[0]);
   EXPECT_EQ("@ ", lines[1]);
@@ -64,8 +60,7 @@ TEST(Renderer, RenderMultipleCharacters) {
   Renderer renderer(2, 2);
 
   renderer.add(renderable);
-  renderer.render();
-  std::vector<std::string> lines = renderer.display();
+  std::vector<std::string> lines = renderer.render();
 
   EXPECT_EQ("  ", lines[0]);
   EXPECT_EQ("@#", lines[1]);
@@ -76,8 +71,7 @@ TEST(Renderer, RenderMultipleLines) {
   Renderer renderer(2, 3);
 
   renderer.add(renderable);
-  renderer.render();
-  std::vector<std::string> lines = renderer.display();
+  std::vector<std::string> lines = renderer.render();
 
   EXPECT_EQ(" a", lines[0]);
   EXPECT_EQ(" b", lines[1]);
@@ -91,8 +85,7 @@ TEST(Renderer, RenderMultipleStrings) {
 
   renderer.add(renderable1);
   renderer.add(renderable2);
-  renderer.render();
-  std::vector<std::string> lines = renderer.display();
+  std::vector<std::string> lines = renderer.render();
 
   EXPECT_EQ("ab", lines[0]);
 }
