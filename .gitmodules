@@ -1,3 +1,6 @@
-[submodule "lib/googletest"]
-	path = lib/googletest
+[submodule "lib/gtest"]
+	path = lib/gtest
 	url = git://github.com/towerism/googletest.git
+[submodule "lib/gmock"]
+	path = lib/gmock
+	url = git://github.com/towerism/googlemock.git
