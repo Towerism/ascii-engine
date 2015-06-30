@@ -11,9 +11,10 @@ void Renderer::add(Renderable* renderable) {
   renderables.emplace_back(renderable);
 }
 
-void Renderer::render() {
+std::vector<std::string> Renderer::render() {
   for (auto renderable : renderables)
     render_renderable(renderable);
+  return char_matrix.get_lines();
 }
 
 void Renderer::render_renderable(std::shared_ptr<Renderable> renderable) {
@@ -21,10 +22,6 @@ void Renderer::render_renderable(std::shared_ptr<Renderable> renderable) {
   int y = renderable->get_y();
   std::string str = renderable->get_str();
   char_matrix.render_at(x, y, str);
-}
-
-std::vector<std::string> Renderer::display() const {
-  return char_matrix.get_lines();
 }
 
 int Renderer::get_width() const {

@@ -12,8 +12,7 @@ public:
   Renderer(int width = 0, int height = 0);
 
   void add(Renderable* renderable);
-  void render();
-  std::vector<std::string> display() const;
+  std::vector<std::string> render();
 
   int get_width() const;
   int get_height() const;
@@ -25,5 +24,6 @@ private:
   std::vector<std::shared_ptr<Renderable>> renderables;
   Char_matrix char_matrix;
 
+  void render_to_matrix();
   void render_renderable(std::shared_ptr<Renderable> renderable);
 };
