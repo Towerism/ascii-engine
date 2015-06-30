@@ -1,3 +1,3 @@
 if (${ENABLE_TESTING})
-  add_subdirectory(googletest)
+  add_subdirectory(gmock)
 endif()
