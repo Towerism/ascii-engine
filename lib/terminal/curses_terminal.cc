@@ -1,11 +1,6 @@
 #include <curses.h>
 #include "curses_terminal.hh"
 
-Curses_terminal& Curses_terminal::get() {
-  static Curses_terminal instance;
-  return instance;
-}
-
 Curses_terminal::Curses_terminal() {
   initscr();
 }

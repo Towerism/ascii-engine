@@ -8,13 +8,13 @@
 class Terminal_output {
 public:
 
-  Terminal_output(Terminal* terminal = &Curses_terminal::get());
+  Terminal_output(Terminal* terminal = new Curses_terminal);
 
   void print_line(std::string line);
   void refresh();
 
 private:
 
-  Terminal* terminal;
+  std::unique_ptr<Terminal> terminal;
 
 };
