@@ -22,7 +22,7 @@ public:
 using ::testing::Return;
 using ::testing::InSequence;
 
-TEST(Display, Update) {
+TEST(Display, UpdateRendersAndPrints) {
   InSequence s;
 
   Mock_renderer* renderer = new Mock_renderer;
