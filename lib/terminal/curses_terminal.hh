@@ -3,10 +3,10 @@
 #include <string>
 #include "terminal_interface.hh"
 
-class Curses_wrapper : public Terminal_interface {
+class Curses_terminal : public Terminal_interface {
 public:
-  Curses_wrapper();
-  virtual ~Curses_wrapper();
+  Curses_terminal();
+  virtual ~Curses_terminal();
 
   virtual void print(std::string str) override;
   virtual void refresh() override;

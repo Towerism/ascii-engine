@@ -3,7 +3,7 @@ if (${CURSES_FOUND})
   include_directories(${CURSES_INCLUDE_DIR})
 endif()
 
-set(TERMINAL_SRCS curses_wrapper.cc)
+set(TERMINAL_SRCS curses_terminal.cc)
 add_library(terminal ${TERMINAL_SRCS})
 
 set(TERMINAL_LIBS ${CURSES_LIBRARIES})
