@@ -10,10 +10,10 @@ public:
 };
 
 TEST(TerminalOutput, PrintLine) {
-  Mock_curses_wrapper curses;
+  Mock_curses_wrapper* curses = new Mock_curses_wrapper;
   std::string test_str = "This is a test";
-  EXPECT_CALL(curses, print(test_str + "\n"));
+  EXPECT_CALL(*curses, print(test_str + "\n"));
 
-  Terminal_output terminal(&curses);
+  Terminal_output terminal(curses);
   terminal.print_line(test_str);
 }
