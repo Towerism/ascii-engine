@@ -38,6 +38,7 @@ TEST(Display, UpdateRendersAndPrints) {
   Mock_output* output = new Mock_output;
   EXPECT_CALL(*output, print_line("  "));
   EXPECT_CALL(*output, print_line("01"));
+  EXPECT_CALL(*output, refresh());
 
   Display display(renderer, output);
   display.update();

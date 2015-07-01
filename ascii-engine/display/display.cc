@@ -13,4 +13,5 @@ void Display::update() {
   for (auto line : rendered) {
     output->print_line(line);
   }
+  output->refresh();
 }
