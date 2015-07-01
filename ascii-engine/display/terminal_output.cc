@@ -1,8 +1,9 @@
 #include <string>
+#include <curses.h>
 #include <curses_wrapper.hh>
 #include "terminal_output.hh"
 
-Terminal_output::Terminal_output() {
+Terminal_output::Terminal_output() : curses(new Curses_wrapper) {
 
 }
 

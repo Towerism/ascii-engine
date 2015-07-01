@@ -30,5 +30,7 @@ TEST(TerminalOutput, Refresh) {
 TEST(TerminalOutput, DefaultConstructor) {
   Terminal_output terminal;
 
-  terminal.print_line("Should not result in segfault");
+  std::string test_str = "This is a test";
+
+  terminal.print_line(test_str);
 }
