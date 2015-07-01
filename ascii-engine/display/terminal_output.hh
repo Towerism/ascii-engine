@@ -10,6 +10,7 @@ public:
   Terminal_output(Curses_wrapper* curses);
 
   void print_line(std::string line);
+  void refresh();
 
 private:
 

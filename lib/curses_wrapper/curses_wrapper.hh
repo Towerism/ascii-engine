@@ -8,4 +8,5 @@ public:
   virtual ~Curses_wrapper();
 
   virtual void print(std::string str);
+  virtual void refresh();
 };
