@@ -7,6 +7,7 @@
 class Mock_curses_wrapper : public Curses_wrapper {
 public:
   MOCK_METHOD1(print, void(std::string));
+  MOCK_METHOD0(refresh, void());
 };
 
 TEST(TerminalOutput, PrintLine) {
@@ -16,4 +17,12 @@ TEST(TerminalOutput, PrintLine) {
 
   Terminal_output terminal(curses);
   terminal.print_line(test_str);
+}
+
+TEST(TerminalOutput, Refresh) {
+  Mock_curses_wrapper* curses = new Mock_curses_wrapper;
+  EXPECT_CALL(*curses, refresh());
+
+  Terminal_output terminal(curses);
+  terminal.refresh();
 }
