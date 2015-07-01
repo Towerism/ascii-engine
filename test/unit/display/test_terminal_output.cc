@@ -26,3 +26,9 @@ TEST(TerminalOutput, Refresh) {
   Terminal_output terminal(curses);
   terminal.refresh();
 }
+
+TEST(TerminalOutput, DefaultConstructor) {
+  Terminal_output terminal;
+
+  terminal.print_line("Should not result in segfault");
+}
