@@ -7,7 +7,7 @@ add_subdirectory(unit)
 get_test_sources(TEST_SRCS)
 add_executable(ascii_engine_test_suite ${TEST_SRCS})
 
-set(TEST_SUITE_LIBS terminal gmock gmock_main ascii_engine)
+set(TEST_SUITE_LIBS gmock gmock_main ascii_engine)
 target_link_libraries(ascii_engine_test_suite ${TEST_SUITE_LIBS})
 
 run_test(ascii_engine_test_suite)
