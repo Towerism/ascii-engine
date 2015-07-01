@@ -1,5 +1,4 @@
 set(DISPLAY_SRCS display.cc
-                 terminal_output.cc
                  )
 add_library(display ${DISPLAY_SRCS})
 
