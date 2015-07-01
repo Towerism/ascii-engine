@@ -12,11 +12,13 @@ public:
   Renderer(int width = 0, int height = 0);
 
   void add(Renderable* renderable);
-  std::vector<std::string> render();
+  virtual std::vector<std::string> render();
 
   int get_width() const;
   int get_height() const;
   const Renderable* get_renderable(int index) const;
+
+  virtual ~Renderer();
 
 private:
 
