@@ -10,5 +10,5 @@ void Terminal_output::print_line(std::string line) {
 }
 
 void Terminal_output::refresh() {
-
+  curses->refresh();
 }
