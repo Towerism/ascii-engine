@@ -1,5 +1,10 @@
 #include <string>
+#include <curses_wrapper.hh>
 #include "terminal_output.hh"
+
+Terminal_output::Terminal_output() {
+
+}
 
 Terminal_output::Terminal_output(Curses_wrapper* curses) : curses(curses) {
 

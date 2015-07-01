@@ -7,6 +7,7 @@
 class Terminal_output {
 public:
 
+  Terminal_output();
   Terminal_output(Curses_wrapper* curses);
 
   void print_line(std::string line);
