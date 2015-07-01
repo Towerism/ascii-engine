@@ -2,19 +2,19 @@
 
 #include <memory>
 #include <string>
+#include <curses_terminal.hh>
 #include <terminal_interface.hh>
 
 class Terminal_output {
 public:
 
-  Terminal_output();
-  Terminal_output(Terminal_interface* terminal);
+  Terminal_output(Terminal_interface* terminal = &Curses_terminal::get());
 
   void print_line(std::string line);
   void refresh();
 
 private:
 
-  std::unique_ptr<Terminal_interface> terminal;
+  Terminal_interface* terminal;
 
 };
