@@ -1,31 +1,19 @@
 #pragma once
 
-#include <memory>
-#include <sstream>
+#include <string>
 #include <vector>
-#include "char_matrix.hh"
 #include "renderable.hh"
 
 class Renderer {
 public:
 
-  Renderer(int width = 0, int height = 0);
+  virtual void add(Renderable* renderable) = 0;
+  virtual std::vector<std::string> render() = 0;
 
-  void add(Renderable* renderable);
-  virtual std::vector<std::string> render();
-
-  int get_width() const;
-  int get_height() const;
-  const Renderable* get_renderable(int index) const;
+  virtual int get_width() const = 0;
+  virtual int get_height() const = 0;
+  virtual const Renderable* get_renderable(int index) const = 0;
 
   virtual ~Renderer() { }
 
-private:
-
-  int width, height;
-  std::vector<std::shared_ptr<Renderable>> renderables;
-  Char_matrix char_matrix;
-
-  void render_to_matrix();
-  void render_renderable(std::shared_ptr<Renderable> renderable);
 };

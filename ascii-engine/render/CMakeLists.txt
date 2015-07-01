@@ -1,6 +1,6 @@
 set(RENDER_SRCS char_matrix.cc
                 line_extractor.cc
                 renderable.cc
-                renderer.cc
+                matrix_renderer.cc
                 )
 add_library (render ${RENDER_SRCS})

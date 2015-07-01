@@ -9,7 +9,11 @@
 class Mock_renderer : public Renderer {
 public:
 
+  MOCK_METHOD1(add, void(Renderable*));
   MOCK_METHOD0(render, std::vector<std::string>());
+  MOCK_CONST_METHOD0(get_width, int());
+  MOCK_CONST_METHOD0(get_height, int());
+  MOCK_CONST_METHOD1(get_renderable, Renderable*(int));
 };
 
 class Mock_output : public Output {
