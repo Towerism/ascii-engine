@@ -6,13 +6,13 @@
 #include <ascii-engine/display/output.hh>
 #include <ascii-engine/render/renderer.hh>
 
-class Mock_renderer : Renderer {
+class Mock_renderer : public Renderer {
 public:
 
   MOCK_METHOD0(render, std::vector<std::string>());
 };
 
-class Mock_output : Output {
+class Mock_output : public Output {
 public:
 
   MOCK_METHOD1(print_line, void(std::string));
