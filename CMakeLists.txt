@@ -13,7 +13,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/curses_wrapper)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib/terminal)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include/ascii-engine)
 include_directories(.)
 

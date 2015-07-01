@@ -1,34 +1,34 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <string>
-#include <curses_wrapper.hh>
+#include <terminal_interface.hh>
 #include <ascii-engine/display/terminal_output.hh>
 
-class Mock_curses_wrapper : public Curses_wrapper {
+class Mock_terminal : public Terminal_interface {
 public:
   MOCK_METHOD1(print, void(std::string));
   MOCK_METHOD0(refresh, void());
 };
 
 TEST(TerminalOutput, PrintLine) {
-  Mock_curses_wrapper* curses = new Mock_curses_wrapper;
+  Mock_terminal* terminal = new Mock_terminal;
   std::string test_str = "This is a test";
-  EXPECT_CALL(*curses, print(test_str + "\n"));
+  EXPECT_CALL(*terminal, print(test_str + "\n"));
 
-  Terminal_output terminal(curses);
-  terminal.print_line(test_str);
+  Terminal_output output(terminal);
+  output.print_line(test_str);
 }
 
 TEST(TerminalOutput, Refresh) {
-  Mock_curses_wrapper* curses = new Mock_curses_wrapper;
-  EXPECT_CALL(*curses, refresh());
+  Mock_terminal* terminal = new Mock_terminal;
+  EXPECT_CALL(*terminal, refresh());
 
-  Terminal_output terminal(curses);
-  terminal.refresh();
+  Terminal_output output(terminal);
+  output.refresh();
 }
 
 TEST(TerminalOutput, DefaultConstructor) {
-  Terminal_output terminal;
+  Terminal_output output;
 
-  terminal.print_line("This should not segfault");
+  output.print_line("This should not segfault");
 }

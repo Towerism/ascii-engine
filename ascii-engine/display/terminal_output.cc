@@ -1,20 +1,20 @@
 #include <string>
-#include <curses.h>
 #include <curses_wrapper.hh>
+#include <terminal_interface.hh>
 #include "terminal_output.hh"
 
-Terminal_output::Terminal_output() : curses(new Curses_wrapper) {
+Terminal_output::Terminal_output() : terminal(new Curses_wrapper) {
 
 }
 
-Terminal_output::Terminal_output(Curses_wrapper* curses) : curses(curses) {
+Terminal_output::Terminal_output(Terminal_interface* terminal) : terminal(terminal) {
 
 }
 
 void Terminal_output::print_line(std::string line) {
-  curses->print(line.append("\n"));
+  terminal->print(line.append("\n"));
 }
 
 void Terminal_output::refresh() {
-  curses->refresh();
+  terminal->refresh();
 }
