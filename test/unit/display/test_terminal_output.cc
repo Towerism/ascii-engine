@@ -1,10 +1,10 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 #include <string>
-#include <terminal_interface.hh>
+#include <terminal.hh>
 #include <ascii-engine/display/terminal_output.hh>
 
-class Mock_terminal : public Terminal_interface {
+class Mock_terminal : public Terminal {
 public:
   MOCK_METHOD1(print, void(std::string));
   MOCK_METHOD0(refresh, void());

@@ -1,9 +1,9 @@
 #include <string>
 #include <curses_terminal.hh>
-#include <terminal_interface.hh>
+#include <terminal.hh>
 #include "terminal_output.hh"
 
-Terminal_output::Terminal_output(Terminal_interface* terminal) : terminal(terminal) {
+Terminal_output::Terminal_output(Terminal* terminal) : terminal(terminal) {
 
 }
 

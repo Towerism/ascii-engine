@@ -2,11 +2,11 @@
 
 #include <string>
 
-class Terminal_interface {
+class Terminal {
 public:
 
   virtual void print(std::string str) = 0;
   virtual void refresh() = 0;
 
-  virtual ~Terminal_interface() { }
+  virtual ~Terminal() { }
 };

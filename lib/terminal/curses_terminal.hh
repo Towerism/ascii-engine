@@ -1,9 +1,9 @@
 #pragma once
 
 #include <string>
-#include "terminal_interface.hh"
+#include "terminal.hh"
 
-class Curses_terminal : public Terminal_interface {
+class Curses_terminal : public Terminal {
 public:
 
   static Curses_terminal& get();
