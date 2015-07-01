@@ -18,7 +18,7 @@ public:
   int get_height() const;
   const Renderable* get_renderable(int index) const;
 
-  virtual ~Renderer();
+  virtual ~Renderer() { }
 
 private:
 
