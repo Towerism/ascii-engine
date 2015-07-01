@@ -4,14 +4,15 @@
 #include <string>
 #include <curses_terminal.hh>
 #include <terminal.hh>
+#include "output.hh"
 
-class Terminal_output {
+class Terminal_output : Output {
 public:
 
-  Terminal_output(Terminal* terminal = new Curses_terminal);
+  Terminal_output(Terminal* terminal);
 
-  void print_line(std::string line);
-  void refresh();
+  virtual void print_line(std::string line) override;
+  virtual void refresh() override;
 
 private:
 
