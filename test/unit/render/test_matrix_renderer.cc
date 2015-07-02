@@ -1,10 +1,10 @@
 #include <gtest/gtest.h>
 #include <string>
-#include <ascii-engine/render/renderer.hh>
+#include <ascii-engine/render/matrix_renderer.hh>
 #include <ascii-engine/render/renderable.hh>
 
-TEST(Renderer, CreateDefault) {
-  Renderer renderer;
+TEST(Matrix_renderer, CreateDefault) {
+  Matrix_renderer renderer;
   std::vector<std::string> lines = renderer.render();
 
   EXPECT_EQ(0, renderer.get_width());
@@ -12,11 +12,11 @@ TEST(Renderer, CreateDefault) {
   EXPECT_TRUE(lines.empty());
 }
 
-TEST(Renderer, CreateWithDimensions) {
+TEST(Matrix_renderer, CreateWithDimensions) {
   int width = 3;
   int height = 2;
 
-  Renderer renderer(3, 2);
+  Matrix_renderer renderer(3, 2);
   std::vector<std::string> lines = renderer.render();
 
   EXPECT_EQ(width, renderer.get_width());
@@ -25,18 +25,18 @@ TEST(Renderer, CreateWithDimensions) {
   EXPECT_EQ("   ", lines[1]);
 }
 
-TEST(Renderer, AddRenderable) {
+TEST(Matrix_renderer, AddRenderable) {
   Renderable* renderable = new Renderable;
-  Renderer renderer;
+  Matrix_renderer renderer;
 
   renderer.add(renderable);
 
   EXPECT_EQ(renderable, renderer.get_renderable(0));
 }
 
-TEST(Renderer, RenderSingleCharacterAtOrigin) {
+TEST(Matrix_renderer, RenderSingleCharacterAtOrigin) {
   Renderable* renderable = new Renderable(0, 0, "@");
-  Renderer renderer(2, 2);
+  Matrix_renderer renderer(2, 2);
 
   renderer.add(renderable);
   std::vector<std::string> lines = renderer.render();
@@ -44,9 +44,9 @@ TEST(Renderer, RenderSingleCharacterAtOrigin) {
   EXPECT_EQ("@ ", lines[0]);
 }
 
-TEST(Renderer, RenderSingleCharacterAtNonOrigin) {
+TEST(Matrix_renderer, RenderSingleCharacterAtNonOrigin) {
   Renderable* renderable = new Renderable(0, 1, "@");
-  Renderer renderer(2, 2);
+  Matrix_renderer renderer(2, 2);
 
   renderer.add(renderable);
   std::vector<std::string> lines = renderer.render();
@@ -55,9 +55,9 @@ TEST(Renderer, RenderSingleCharacterAtNonOrigin) {
   EXPECT_EQ("@ ", lines[1]);
 }
 
-TEST(Renderer, RenderMultipleCharacters) {
+TEST(Matrix_renderer, RenderMultipleCharacters) {
   Renderable* renderable = new Renderable(0, 1, "@#");
-  Renderer renderer(2, 2);
+  Matrix_renderer renderer(2, 2);
 
   renderer.add(renderable);
   std::vector<std::string> lines = renderer.render();
@@ -66,9 +66,9 @@ TEST(Renderer, RenderMultipleCharacters) {
   EXPECT_EQ("@#", lines[1]);
 }
 
-TEST(Renderer, RenderMultipleLines) {
+TEST(Matrix_renderer, RenderMultipleLines) {
   Renderable* renderable = new Renderable(1, 0, "a\nb\nc");
-  Renderer renderer(2, 3);
+  Matrix_renderer renderer(2, 3);
 
   renderer.add(renderable);
   std::vector<std::string> lines = renderer.render();
@@ -78,10 +78,10 @@ TEST(Renderer, RenderMultipleLines) {
   EXPECT_EQ(" c", lines[2]);
 }
 
-TEST(Renderer, RenderMultipleStrings) {
+TEST(Matrix_renderer, RenderMultipleStrings) {
   Renderable* renderable1 = new Renderable(0, 0, "aa");
   Renderable* renderable2 = new Renderable(1, 0, "b");
-  Renderer renderer(2, 1);
+  Matrix_renderer renderer(2, 1);
 
   renderer.add(renderable1);
   renderer.add(renderable2);
