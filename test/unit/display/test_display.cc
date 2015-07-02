@@ -29,10 +29,10 @@ using ::testing::NiceMock;
 TEST(Display, UpdateGivenSingleLine) {
   InSequence s;
 
-  NiceMock<Mock_renderer>* renderer = new NiceMock<Mock_renderer>;
+  Mock_renderer* renderer = new Mock_renderer;
   std::vector<std::string> test_rendered = { "test line" };
-  ON_CALL(*renderer, render())
-    .WillByDefault(Return(test_rendered));
+  EXPECT_CALL(*renderer, render())
+    .WillOnce(Return(test_rendered));
 
   StrictMock<Mock_terminal>* terminal = new StrictMock<Mock_terminal>;
   EXPECT_CALL(*terminal, print(test_rendered[0] + "\n"));
@@ -45,10 +45,10 @@ TEST(Display, UpdateGivenSingleLine) {
 TEST(Display, UpdateGivenTwoUnidenticalLines) {
   InSequence s;
 
-  NiceMock<Mock_renderer>* renderer = new NiceMock<Mock_renderer>;
+  Mock_renderer* renderer = new Mock_renderer;
   std::vector<std::string> test_rendered = { "test line 1", "test line 2" };
-  ON_CALL(*renderer, render())
-    .WillByDefault(Return(test_rendered));
+  EXPECT_CALL(*renderer, render())
+    .WillOnce(Return(test_rendered));
 
   StrictMock<Mock_terminal>* terminal = new StrictMock<Mock_terminal>;
   EXPECT_CALL(*terminal, print(test_rendered[0] + "\n"));
