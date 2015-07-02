@@ -11,7 +11,7 @@ Display::Display(Renderer* renderer, Terminal* terminal) : renderer(renderer), t
 void Display::update() {
   std::vector<std::string> lines_rendered = renderer->render();
   print_lines(lines_rendered);
-  terminal->hard_refresh();
+  update_terminal();
 }
 
 void Display::print_lines(const std::vector<std::string>& lines) {
@@ -22,4 +22,9 @@ void Display::print_lines(const std::vector<std::string>& lines) {
 void Display::print_line_appended_with(const std::string& line, const std::string& append) {
   std::string appended_line = line + append;
   terminal->print(appended_line);
+}
+
+void Display::update_terminal() {
+  terminal->refresh();
+  terminal->clear();
 }

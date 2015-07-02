@@ -11,7 +11,6 @@ public:
 
   virtual void print(std::string str) override;
   virtual void refresh() override;
-  virtual void hard_refresh() override;
   virtual void clear() override;
 
 };

@@ -17,11 +17,6 @@ void Curses_terminal::refresh() {
   ::refresh();
 }
 
-void Curses_terminal::hard_refresh() {
-  refresh();
-  clear();
-}
-
 void Curses_terminal::clear() {
   ::clear();
 }

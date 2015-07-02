@@ -14,12 +14,19 @@ class DisplayTest : public ::testing::Test {
 public:
   DisplayTest() : display(renderer, terminal) { }
 
+protected:
+
   InSequence s;
 
   Mock_renderer* renderer = new Mock_renderer;
   StrictMock<Mock_terminal>* terminal = new StrictMock<Mock_terminal>;
 
   Display display;
+
+  void expect_refresh_and_clear() {
+    EXPECT_CALL(*terminal, refresh());
+    EXPECT_CALL(*terminal, clear());
+  }
 };
 
 TEST_F(DisplayTest, UpdateGivenSingleLine) {
@@ -28,7 +35,7 @@ TEST_F(DisplayTest, UpdateGivenSingleLine) {
     .WillOnce(Return(test_rendered));
 
   EXPECT_CALL(*terminal, print(test_rendered[0] + "\n"));
-  EXPECT_CALL(*terminal, hard_refresh());
+  expect_refresh_and_clear();
 
   display.update();
 }
@@ -40,7 +47,7 @@ TEST_F(DisplayTest, UpdateGivenTwoUnidenticalLines) {
 
   EXPECT_CALL(*terminal, print(test_rendered[0] + "\n"));
   EXPECT_CALL(*terminal, print(test_rendered[1] + "\n"));
-  EXPECT_CALL(*terminal, hard_refresh());
+  expect_refresh_and_clear();
 
   display.update();
 }
