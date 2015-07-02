@@ -3,7 +3,7 @@
 #include <ascii-engine/render/matrix_renderer.hh>
 #include <ascii-engine/render/renderable.hh>
 
-TEST(Matrix_renderer, CreateDefault) {
+TEST(MatrixRendererTest, CreateDefault) {
   Matrix_renderer renderer;
   std::vector<std::string> lines = renderer.render();
 
@@ -12,7 +12,7 @@ TEST(Matrix_renderer, CreateDefault) {
   EXPECT_TRUE(lines.empty());
 }
 
-TEST(Matrix_renderer, CreateWithDimensions) {
+TEST(MatrixRendererTest, CreateWithDimensions) {
   int width = 3;
   int height = 2;
 
@@ -25,7 +25,7 @@ TEST(Matrix_renderer, CreateWithDimensions) {
   EXPECT_EQ("   ", lines[1]);
 }
 
-TEST(Matrix_renderer, AddRenderable) {
+TEST(MatrixRendererTest, AddRenderable) {
   Renderable* renderable = new Renderable;
   Matrix_renderer renderer;
 
@@ -34,7 +34,7 @@ TEST(Matrix_renderer, AddRenderable) {
   EXPECT_EQ(renderable, renderer.get_renderable(0));
 }
 
-TEST(Matrix_renderer, RenderSingleCharacterAtOrigin) {
+TEST(MatrixRendererTest, RenderSingleCharacterAtOrigin) {
   Renderable* renderable = new Renderable(0, 0, "@");
   Matrix_renderer renderer(2, 2);
 
@@ -44,7 +44,7 @@ TEST(Matrix_renderer, RenderSingleCharacterAtOrigin) {
   EXPECT_EQ("@ ", lines[0]);
 }
 
-TEST(Matrix_renderer, RenderSingleCharacterAtNonOrigin) {
+TEST(MatrixRendererTest, RenderSingleCharacterAtNonOrigin) {
   Renderable* renderable = new Renderable(0, 1, "@");
   Matrix_renderer renderer(2, 2);
 
@@ -55,7 +55,7 @@ TEST(Matrix_renderer, RenderSingleCharacterAtNonOrigin) {
   EXPECT_EQ("@ ", lines[1]);
 }
 
-TEST(Matrix_renderer, RenderMultipleCharacters) {
+TEST(MatrixRendererTest, RenderMultipleCharacters) {
   Renderable* renderable = new Renderable(0, 1, "@#");
   Matrix_renderer renderer(2, 2);
 
@@ -66,7 +66,7 @@ TEST(Matrix_renderer, RenderMultipleCharacters) {
   EXPECT_EQ("@#", lines[1]);
 }
 
-TEST(Matrix_renderer, RenderMultipleLines) {
+TEST(MatrixRendererTest, RenderMultipleLines) {
   Renderable* renderable = new Renderable(1, 0, "a\nb\nc");
   Matrix_renderer renderer(2, 3);
 
@@ -78,7 +78,7 @@ TEST(Matrix_renderer, RenderMultipleLines) {
   EXPECT_EQ(" c", lines[2]);
 }
 
-TEST(Matrix_renderer, RenderMultipleStrings) {
+TEST(MatrixRendererTest, RenderMultipleStrings) {
   Renderable* renderable1 = new Renderable(0, 0, "aa");
   Renderable* renderable2 = new Renderable(1, 0, "b");
   Matrix_renderer renderer(2, 1);
