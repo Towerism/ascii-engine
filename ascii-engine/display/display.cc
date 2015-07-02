@@ -1,17 +1,25 @@
 #include <vector>
 #include <string>
 #include <ascii-engine/render/renderer.hh>
+#include <terminal.hh>
 #include "display.hh"
-#include "output.hh"
 
-Display::Display(Renderer* renderer, Output* output) : renderer(renderer), output(output) {
+Display::Display(Renderer* renderer, Terminal* terminal) : renderer(renderer), terminal(terminal) {
 
 }
 
 void Display::update() {
-  std::vector<std::string> rendered = renderer->render();
-  for (auto line : rendered) {
-    output->print_line(line);
-  }
-  output->refresh();
+  std::vector<std::string> lines_rendered = renderer->render();
+  print_lines(lines_rendered);
+  terminal->hard_refresh();
+}
+
+void Display::print_lines(const std::vector<std::string>& lines) {
+  for (auto line : lines)
+    print_line_appended_with(line, "\n");
+}
+
+void Display::print_line_appended_with(const std::string& line, const std::string& append) {
+  std::string appended_line = line + append;
+  terminal->print(appended_line);
 }
