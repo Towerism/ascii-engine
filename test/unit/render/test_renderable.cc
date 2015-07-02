@@ -2,7 +2,7 @@
 #include <ascii-engine/render/renderable.hh>
 #include <string>
 
-TEST(Renderable, CreateDefault) {
+TEST(RenderableTest, CreateDefault) {
   Renderable test_renderable;
 
   EXPECT_EQ(0, test_renderable.get_x());
@@ -10,7 +10,7 @@ TEST(Renderable, CreateDefault) {
   EXPECT_EQ("", test_renderable.get_str());
 }
 
-TEST(Renderable, CreateWithPositionAndStr) {
+TEST(RenderableTest, CreateWithPositionAndStr) {
   int x = 5;
   int y = 6;
   std::string str = "test";
