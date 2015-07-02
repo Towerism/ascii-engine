@@ -19,6 +19,8 @@ class Mock_terminal : public Terminal {
 public:
   MOCK_METHOD1(print, void(std::string));
   MOCK_METHOD0(refresh, void());
+  MOCK_METHOD0(hard_refresh, void());
+  MOCK_METHOD0(clear, void());
 };
 
 using ::testing::Return;
@@ -36,7 +38,7 @@ TEST(Display, UpdateGivenSingleLine) {
 
   StrictMock<Mock_terminal>* terminal = new StrictMock<Mock_terminal>;
   EXPECT_CALL(*terminal, print(test_rendered[0] + "\n"));
-  EXPECT_CALL(*terminal, refresh());
+  EXPECT_CALL(*terminal, hard_refresh());
 
   Display display(renderer, terminal);
   display.update();
@@ -53,7 +55,7 @@ TEST(Display, UpdateGivenTwoUnidenticalLines) {
   StrictMock<Mock_terminal>* terminal = new StrictMock<Mock_terminal>;
   EXPECT_CALL(*terminal, print(test_rendered[0] + "\n"));
   EXPECT_CALL(*terminal, print(test_rendered[1] + "\n"));
-  EXPECT_CALL(*terminal, refresh());
+  EXPECT_CALL(*terminal, hard_refresh());
 
   Display display(renderer, terminal);
   display.update();

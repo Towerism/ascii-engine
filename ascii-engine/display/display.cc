@@ -10,7 +10,16 @@ Display::Display(Renderer* renderer, Terminal* terminal) : renderer(renderer), t
 
 void Display::update() {
   std::vector<std::string> lines_rendered = renderer->render();
-  for (auto line : lines_rendered)
-    terminal->print(line.append("\n"));
-  terminal->refresh();
+  print_lines(lines_rendered);
+  terminal->hard_refresh();
+}
+
+void Display::print_lines(const std::vector<std::string>& lines) {
+  for (auto line : lines)
+    print_line_appended_with(line, "\n");
+}
+
+void Display::print_line_appended_with(const std::string& line, const std::string& append) {
+  std::string appended_line = line + append;
+  terminal->print(appended_line);
 }
