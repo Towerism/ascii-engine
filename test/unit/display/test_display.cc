@@ -18,8 +18,8 @@ protected:
 
   InSequence s;
 
-  Mock_renderer* renderer = new Mock_renderer;
-  StrictMock<Mock_terminal>* terminal = new StrictMock<Mock_terminal>;
+  std::shared_ptr<Mock_renderer> renderer = std::make_shared<Mock_renderer>();
+  std::shared_ptr<Mock_terminal> terminal = std::make_shared<Mock_terminal>();
 
   Display display;
 

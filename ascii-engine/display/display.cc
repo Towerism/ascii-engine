@@ -1,10 +1,11 @@
+#include <memory>
 #include <vector>
 #include <string>
 #include <ascii-engine/render/renderer.hh>
 #include <terminal.hh>
 #include "display.hh"
 
-Display::Display(Renderer* renderer, Terminal* terminal) : renderer(renderer), terminal(terminal) {
+Display::Display(std::shared_ptr<Renderer> renderer, std::shared_ptr<Terminal> terminal) : renderer(renderer), terminal(terminal) {
 
 }
 
