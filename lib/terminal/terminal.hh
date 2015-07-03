@@ -9,5 +9,5 @@ public:
   virtual void refresh() = 0;
   virtual void clear() = 0;
 
-  virtual ~Terminal() { }
+  virtual ~Terminal() = default;
 };
