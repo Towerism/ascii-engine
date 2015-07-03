@@ -89,3 +89,13 @@ TEST(MatrixRendererTest, RenderMultipleStrings) {
 
   EXPECT_EQ("ab", lines[0]);
 }
+
+TEST(MatrixRendererTest, RenderStringTrimmed) {
+  Renderable* renderable1 = new Renderable(0, 0, "this string is way too long");
+  Matrix_renderer renderer(5, 1);
+
+  renderer.add(renderable1);
+  std::vector<std::string> lines = renderer.render();
+
+  EXPECT_EQ("this ", lines[0]);
+}
