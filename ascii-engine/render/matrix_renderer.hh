@@ -12,12 +12,12 @@ public:
 
   Matrix_renderer(int width = 0, int height = 0);
 
-  virtual void add(Renderable* renderable) override;
-  virtual std::vector<std::string> render() override;
+  void add(Renderable* renderable) override;
+  std::vector<std::string> render() override;
 
-  virtual int get_width() const;
-  virtual int get_height() const;
-  virtual const Renderable* get_renderable(int index) const;
+  int get_width() const override;
+  int get_height() const override;
+  const Renderable* get_renderable(int index) const override;
 
 private:
 
