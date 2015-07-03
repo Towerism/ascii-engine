@@ -14,6 +14,6 @@ public:
   virtual int get_height() const = 0;
   virtual const Renderable* get_renderable(int index) const = 0;
 
-  virtual ~Renderer() { }
+  virtual ~Renderer() = default;
 
 };
