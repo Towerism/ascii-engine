@@ -11,9 +11,6 @@ using ::testing::StrictMock;
 using ::testing::NiceMock;
 
 class DisplayTest : public ::testing::Test {
-public:
-  DisplayTest() : display(renderer, terminal) { }
-
 protected:
 
   InSequence s;
@@ -21,7 +18,7 @@ protected:
   std::shared_ptr<Mock_renderer> renderer = std::make_shared<Mock_renderer>();
   std::shared_ptr<Mock_terminal> terminal = std::make_shared<Mock_terminal>();
 
-  Display display;
+  Display display = Display(renderer, terminal);
 
   void expect_refresh_and_clear() {
     EXPECT_CALL(*terminal, refresh());
