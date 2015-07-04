@@ -3,8 +3,6 @@ BUILD_DIR := build
 GENERATOR := Unix Makefiles
 CMAKE_FLAGS :=
 
-PROJECT_NAME := ASCII-Engine Library
-
 .PHONY:: all test cmake-test-flags run-tests \
          coverage cmake-coverage-flags build-coveralls \
          compile build-dir generate clean clean-build
